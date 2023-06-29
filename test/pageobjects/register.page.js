@@ -2,13 +2,11 @@
 
 import Page from './page.js';
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
+
 class registerPage extends Page {
-    /**
-     * define selectors using getter methods
-     */
+    /*
+    define selectors using getter methods
+    */
     get firstName ()        { return $('#firstName');}
     get lastName ()         { return $('#lastName'); }
     get email ()            { return $('#emailAddress'); }
@@ -25,7 +23,8 @@ class registerPage extends Page {
     get phone3 ()           { return $('#phoneNumber3'); }
     get next ()             { return $('#register1Next'); }
 
-    async posTester (posArray, negTest, negEntry) {
+    async signUp (posArray, negTest, negEntry) {
+ 
         negTest == 0 ? await this.firstName.setValue(negEntry)                 : await this.firstName.setValue(posArray[0]);
         negTest == 1 ? await this.lastName.setValue(negEntry)                  : await this.lastName.setValue(posArray[1]);
         negTest == 2 ? await this.email.setValue(negEntry)                     : await this.email.setValue(posArray[2]);
@@ -42,9 +41,12 @@ class registerPage extends Page {
         negTest ==13 ? await this.phone3.setValue(negEntry)                    : await this.phone3.setValue(posArray[13]);
         await this.next.click;
     }
+
+    posTester = (posArray) => this.signUp(posArray, null, null);
+
     async negTester(posArray, negTest, negArray) {
         for (let i = 0; i <= negArray.length; i++) {
-            await posTester(posArray, negTest, negArray[i]);
+            await this.signUp(posArray, negTest, negArray[i]);
         }
     }
     open () {
