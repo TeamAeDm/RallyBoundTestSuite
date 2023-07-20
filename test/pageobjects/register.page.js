@@ -12,22 +12,32 @@ class registerPage extends Page {
     get aptSteUnit ()       { return $('#address2'); }
     get country ()          { return $('#country'); }
     get city ()             { return $('#city'); }
-    get stateProvince ()    { return $('#state'); }
+    get state ()            { return $('#state'); }
+    get province ()         { return $('#stateCa'); }
     get zipPostal ()        { return $('#zip'); }
     get phone0 ()           { return $('#phoneNumber'); }
     get phone1 ()           { return $('#phoneNumber2'); }
     get phone2 ()           { return $('#phoneNumber3'); }
     get next ()             { return $('#register1Next'); }
 
-    async phoneNumber (tenDigits) {
+    async phoneNumber(tenDigits) {
         var digitArray = await tenDigits.split("-");
         await this.phone0.setValue(digitArray[0])
         await this.phone1.setValue(digitArray[1])
         await this.phone2.setValue(digitArray[2])
     }
 
-    async signUp (posArray, negTest, negEntry) {
- 
+    async stateProvince() {
+        if (this.state.isDisplayed()) {
+            return this.state;
+        } else if (this.province.isDisplayed()) {
+            return this.province;
+        } else {
+            return null;
+        }
+    }
+    async signUp(posArray, negTest, negEntry) {
+
         negTest == 0 ? await this.firstName.setValue(negEntry)                  : await this.firstName.setValue(posArray[0]);
         negTest == 1 ? await this.lastName.setValue(negEntry)                   : await this.lastName.setValue(posArray[1]);
         negTest == 2 ? await this.email.setValue(negEntry)                      : await this.email.setValue(posArray[2]);
