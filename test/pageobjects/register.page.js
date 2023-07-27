@@ -53,8 +53,7 @@ class registerPage extends Page {
         await this.next.click;
     }
 
-    posTester = (posArray) => this.signUp(posArray, null, null);
-
+    async posTester(posArray){ this.signUp(posArray, 0, 0); }
     async negTester(posArray, negTest, negArray) {
         for (let i = 0; i <= negArray.length; i++) {
             await this.signUp(posArray, negTest, negArray[i]);
