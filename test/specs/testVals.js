@@ -1,5 +1,5 @@
 //first, the positive tests, starting with the equivalence partitions
-
+export default class testVals {
 posEPus = [
     "Le' a-Marie",
     "O’ Conn-él",
@@ -265,3 +265,4 @@ negPhone = [
     "555-555-012",
     "555-555-01234"
 ]
+}
