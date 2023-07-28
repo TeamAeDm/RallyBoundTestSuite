@@ -60,7 +60,7 @@ class registerPage extends Page {
         }
     }
     open () {
-        return super.open('Account/Register');
+        return super.open('/Account/Register');
     }
 }
 
