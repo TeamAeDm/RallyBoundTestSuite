@@ -63,7 +63,7 @@ class registerPage extends Page {
             await this.signUp(posArray, negTest, negArray[i]);
         }
     }
-    
+
     open () {
         return super.open('/Account/Register');
     }
