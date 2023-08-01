@@ -19,7 +19,7 @@ class registerPage extends Page {
     get phone1 ()           { return $('#phoneNumber2'); }
     get phone2 ()           { return $('#phoneNumber3'); }
     get next ()             { return $('#register1Next'); }
-    get step2 ()            { return $('#register2Form')}
+    get step ()            { return $('.stepofFour')}
 
     async phoneNumber(tenDigits) {
         var digitArray = await tenDigits.split("-");
@@ -37,6 +37,9 @@ class registerPage extends Page {
             return null;
         }
     }
+
+    async validForm () { return await this.step.getText() === "Step 2 of 4" }
+
     async signUp(posArray, negTest, negEntry) {
 
         negTest == 0 ? await this.firstName.setValue(negEntry)                  : await this.firstName.setValue(posArray[0]);
@@ -57,7 +60,7 @@ class registerPage extends Page {
     async posTester(posArray) {
         await this.open(); 
         this.signUp(posArray, 12, 0);
-        await expect(this.step2).toBeDisplayed(); 
+        await expect(this.validForm).toBeTruthy(); 
     }
 
     async negTester(posArray, negTest, negArray) {
@@ -65,7 +68,7 @@ class registerPage extends Page {
         for (let i = 0; i <= length; i++) {
             await this.open();
             await this.signUp(posArray, negTest, negArray[i]);
-            await expect(this.step2).not.toBeDisplayed();
+            await expect(this.validForm).not.toBeTruthy();
         }
     }
 
