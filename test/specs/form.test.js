@@ -87,7 +87,7 @@ describe('Negative Testing the ', () => {
     });
 
     it('Confirm Password Field', async () => {
-        await registerPage.negTester(testVals.posEPus, 0, testVals.negConfirmPassword;
+        await registerPage.negTester(testVals.posEPus, 0, testVals.negConfirmPassword);
     });
 
     it('Physical Address Field', async () => {
