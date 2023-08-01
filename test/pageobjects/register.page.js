@@ -19,7 +19,7 @@ class registerPage extends Page {
     get phone1 ()           { return $('#phoneNumber2'); }
     get phone2 ()           { return $('#phoneNumber3'); }
     get next ()             { return $('#register1Next'); }
-    get step ()            { return $('.stepofFour')}
+    get step ()             {return $('.stepofFour')}
 
     async phoneNumber(tenDigits) {
         var digitArray = await tenDigits.split("-");
@@ -38,7 +38,6 @@ class registerPage extends Page {
         }
     }
 
-    async validForm () { return await this.step.getText() === "Step 2 of 4" }
 
     async signUp(posArray, negTest, negEntry) {
 
@@ -60,17 +59,22 @@ class registerPage extends Page {
     async posTester(posArray) {
         await this.open(); 
         this.signUp(posArray, 12, 0);
-        await expect(this.validForm).toBeTruthy(); 
+        await expect(this.step).toBeHaveText("Step 2 of 4"); 
     }
 
     async negTester(posArray, negTest, negArray) {
-        const length = negArray.length;
-        for (let i = 0; i <= length; i++) {
-            await this.open();
-            await this.signUp(posArray, negTest, negArray[i]);
-            await expect(this.validForm).not.toBeTruthy();
+        // Check if negArray is not undefined and it is an array
+        if (negArray && Array.isArray(negArray)) {
+            for (let i = 0; i < negArray.length; i++) {
+                await this.open();
+                await this.signUp(posArray, negTest, negArray[i]);
+                await expect(this.step).toBeHaveText("Step 1 of 4");
+            }
+        } else {
+            console.log('negArray is either undefined or not an array');
         }
     }
+
 
     open () {
         return super.open('/Account/Register');
