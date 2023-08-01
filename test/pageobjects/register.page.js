@@ -19,6 +19,7 @@ class registerPage extends Page {
     get phone1 ()           { return $('#phoneNumber2'); }
     get phone2 ()           { return $('#phoneNumber3'); }
     get next ()             { return $('#register1Next'); }
+    get step2 ()            { return $('#register2Form')}
 
     async phoneNumber(tenDigits) {
         var digitArray = await tenDigits.split("-");
