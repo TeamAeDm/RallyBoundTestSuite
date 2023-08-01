@@ -55,12 +55,17 @@ class registerPage extends Page {
     }
 
     async posTester(posArray) {
+        await this.open(); 
         this.signUp(posArray, 12, 0);
+        await expect(this.step2).toBeDisplayed(); 
     }
 
     async negTester(posArray, negTest, negArray) {
-        for (let i = 0; i <= negArray.length; i++) {
+        const length = negArray.length;
+        for (let i = 0; i <= length; i++) {
+            await this.open();
             await this.signUp(posArray, negTest, negArray[i]);
+            await expect(this.step2).not.toBeDisplayed();
         }
     }
 
