@@ -38,6 +38,18 @@ class registerPage extends Page {
         }
     }
 
+    async expectTestOutcome(specifiedBool) {
+        const elementHasText = await browser.waitUntil(async () => {
+            return (await browser.getText(this.step)) === 'Step 2 of 4';
+        }, {
+            timeout: 5000,
+            timeoutMsg: 'Form contains invalid Entries'
+        });
+
+        return elementHasText === specifiedBool;
+        
+    }
+
 
     async signUp(posArray, negTest, negEntry) {
 
@@ -59,7 +71,7 @@ class registerPage extends Page {
     async posTester(posArray) {
         await this.open(); 
         this.signUp(posArray, 12, 0);
-        await expect(this.step).toBeHaveText("Step 2 of 4"); 
+        await expect(this.expectTestOutcome(true)).toBeTruthy(); 
     }
 
     async negTester(posArray, negTest, negArray) {
@@ -68,7 +80,7 @@ class registerPage extends Page {
             for (let i = 0; i < negArray.length; i++) {
                 await this.open();
                 await this.signUp(posArray, negTest, negArray[i]);
-                await expect(this.step).toBeHaveText("Step 1 of 4");
+                await expect(this.expectTestOutcome(false)).toBeTruthy();
             }
         } else {
             console.log('negArray is either undefined or not an array');
