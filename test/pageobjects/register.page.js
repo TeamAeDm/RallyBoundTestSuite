@@ -30,11 +30,11 @@ class registerPage extends Page {
 
     async stateProvince() {
         if (this.state.isDisplayed()) {
-            return this.state;
+            console.log("STATE IS SHOWING")
         } else if (this.province.isDisplayed()) {
-            return this.province;
+            console.log("PROVINCE IS SHOWING")
         } else {
-            return null;
+            console.log("NEITHER PROVINCE NOR STATE IS SHOWING")
         }
     }
 
