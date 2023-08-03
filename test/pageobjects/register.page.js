@@ -75,17 +75,11 @@ class registerPage extends Page {
     }
 
     async negTester(posArray, negTest, negArray) {
-        // Check if negArray is not undefined and it is an array
-        if (negArray && Array.isArray(negArray)) {
             for (let i = 0; i < negArray.length; i++) {
                 await this.open();
                 await this.signUp(posArray, negTest, negArray[i]);
                 await expect(this.expectTestOutcome(false)).toBeTruthy();
             }
-        } else {
-            console.log('negArray is either undefined or not an array');
-            await expect(false).toBeTruthy();
-        }
     }
 
 
