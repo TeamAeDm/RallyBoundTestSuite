@@ -28,11 +28,13 @@ class registerPage extends Page {
         await this.phone2.setValue(digitArray[2])
     }
 
-    async stateProvince() {
+    async stateProvince(select) {
         if (this.state.isDisplayed()) {
             console.log("STATE IS SHOWING")
+            await this.state.selectByVisibleText(select);
         } else if (this.province.isDisplayed()) {
             console.log("PROVINCE IS SHOWING")
+            await this.province.selectByVisibleText(select);;
         } else {
             console.log("NEITHER PROVINCE NOR STATE IS SHOWING")
         }
@@ -62,7 +64,7 @@ class registerPage extends Page {
         negTest == 6 ? await this.aptSteUnit.setValue(negEntry)                 : await this.aptSteUnit.setValue(posArray[6]);
         negTest == 7 ? await this.country.selectByVisibleText(negEntry)         : await this.country.selectByVisibleText(posArray[7]);
         negTest == 8 ? await this.city.setValue(negEntry)                       : await this.city.setValue(posArray[8]);
-        negTest == 9 ? await this.stateProvince.selectByVisibleText(negEntry)   : await this.stateProvince.selectByVisibleText(posArray[9]);
+        negTest == 9 ? await this.stateProvince.(negEntry)                      : await this.stateProvince(posArray[9]);
         negTest ==10 ? await this.zipPostal.setValue(negEntry)                  : await this.zipPostal.setValue(posArray[10]);
         negTest ==11 ? await this.phoneNumber(negEntry)                         : await this.phoneNumber(posArray[11]);
         await this.next.click;
