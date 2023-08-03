@@ -34,7 +34,7 @@ class registerPage extends Page {
             await this.state.selectByVisibleText(select);
         } else if (this.province.isDisplayed()) {
             console.log("PROVINCE IS SHOWING")
-            await this.province.selectByVisibleText(select);;
+            await this.province.selectByVisibleText(select);
         } else {
             console.log("NEITHER PROVINCE NOR STATE IS SHOWING")
         }
