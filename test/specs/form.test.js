@@ -75,35 +75,35 @@ describe('Negative Testing the ', () => {
     });
 
     it('Last Name Field', async () => {
-        await registerPage.negTester(testVals.posEPus, 0, testVals.negFirstName);
+        await registerPage.negTester(testVals.posEPus, 1, testVals.negFirstName);
     });
 
     it('Email Address Field', async () => {
-        await registerPage.negTester(testVals.posEPus, 0, testVals.negEmail);
+        await registerPage.negTester(testVals.posEPus, 2, testVals.negEmail);
     });
 
     it('Password Field', async () => {
-        await registerPage.negTester(testVals.posEPus, 0, testVals.negPassword);
+        await registerPage.negTester(testVals.posEPus, 3, testVals.negPassword);
     });
 
     it('Confirm Password Field', async () => {
-        await registerPage.negTester(testVals.posEPus, 0, testVals.negConfirmPassword);
+        await registerPage.negTester(testVals.posEPus, 4, testVals.negConfirmPassword);
     });
 
     it('Physical Address Field', async () => {
-        await registerPage.negTester(testVals.posEPus, 0, testVals.negPhysAddress);
+        await registerPage.negTester(testVals.posEPus, 5, testVals.negPhysAddress);
     });
 
     it('Apt/Suite/Unit Field', async () => {
-        await registerPage.negTester(testVals.posEPus, 0, testVals.negAptSuiteUnit);
+        await registerPage.negTester(testVals.posEPus, 6, testVals.negAptSuiteUnit);
     });
 
     it('Country Field', async () => {
-        await registerPage.negTester(testVals.posEPus, 0, testVals.negCountry); 
+        await registerPage.negTester(testVals.posEPus, 7, testVals.negCountry); 
     });
 
     it('City Field', async () => {
-        await registerPage.negTester(testVals.posEPus, 0, testVals.negCity);
+        await registerPage.negTester(testVals.posEPus, 8, testVals.negCity);
     });
 
     it('US State Field', async () => {
