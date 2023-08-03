@@ -1,6 +1,6 @@
 //first, the positive tests, starting with the equivalence partitions
-export default class testVals {
-posEPus = [
+export class testVals {
+static posEPus = [
     "Le' a-Marie",
     "O’ Conn-él",
     "Le'a-Marie.0'¢onn-31@autest.net",
@@ -15,7 +15,7 @@ posEPus = [
     "555-555-0123"
 ]
 
-posEPca = [
+static posEPca = [
     "Le' a-Marie",
     "O’ Conn-él",
     "Le'a-Marie.0'¢onn-31@autest.net",
@@ -30,7 +30,7 @@ posEPca = [
     "555-555-0123"
 ]
 
-posEPuk = [
+static posEPuk = [
     "Le' a-Marie",
     "O’ Conn-él",
     "Le'a-Marie.0'¢onn-31@autest.net",
@@ -47,7 +47,7 @@ posEPuk = [
 
 //now the boundary values, the low ones
 
-posBVALus = [
+static posBVALus = [
     "Lea",
     "Con",
     "ai@k.st",
@@ -62,7 +62,7 @@ posBVALus = [
     "000-000-0000",
 ]
 
-posBVALca = [
+static posBVALca = [
     "Lea",
     "Con",
     "ai@k.st",
@@ -77,7 +77,7 @@ posBVALca = [
     "000-000-0000"
 ]
 
-posBVALuk = [
+static posBVALuk = [
     "Lea",
     "Con",
     "ai@k.st",
@@ -93,7 +93,7 @@ posBVALuk = [
 ]
 
 //and the high ones
-posBVAHus = [
+static posBVAHus = [
     "Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a",
     "O’ Conn-él O’ Conn-él O’ Conn-él O’ Conn-él O’ Conn-él O’ Conn-él O’ Conn-él O",
     "12345678901234567890123456789012345678901234567890123@autest.net",
@@ -108,7 +108,7 @@ posBVAHus = [
     "999-999-9999"
 ]
 
-posBVAHca = [
+static posBVAHca = [
     "Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a",
     "O’ Conn-él O’ Conn-él O’ Conn-él O’ Conn-él O’ Conn-él O’ Conn-él O’ Conn-él O",
     "12345678901234567890123456789012345678901234567890123@autest.net",
@@ -123,7 +123,7 @@ posBVAHca = [
     "999-999-9999"
 ]
 
-posBVAHuk = [
+static posBVAHuk = [
     "Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a",
     "O’ Conn-él O’ Conn-él O’ Conn-él O’ Conn-él O’ Conn-él O’ Conn-él O’ Conn-él O",
     "12345678901234567890123456789012345678901234567890123@autest.net",
@@ -140,7 +140,7 @@ posBVAHuk = [
 
 // now for the negative values, one for each field
 
-negFirstName = [
+static negFirstName = [
     "Le' @-M@rie",
     "L3' a-Mari3",
     "",
@@ -150,7 +150,7 @@ negFirstName = [
     "L3' @-M@ri3 L3' @-M@ri3 L3' @-M@ri3 L3' @-M@ri3 L3' @-M@ri3 L3' @-M@ri3 L3' @-M@ri3 L3' @-M@ri3 L3' @-M@ri3 L3' @-M@ri3 L3' @-M@ri3"
 ]
 
-negLastName = [
+static negLastName = [
     "O' ¢onn-el",
     "0' Conn-31",
     null,
@@ -160,7 +160,7 @@ negLastName = [
     "0' ¢onn-31 0' ¢onn-31 0' ¢onn-31 0' ¢onn-31 0' ¢onn-31 0' ¢onn-31 0' ¢onn-31 0' ¢onn-31"
 ]
 
-negEmail = [
+static negEmail = [
     "Le'a-Marie.0'¢onn-31@autest.net@",
     "@Le'a-Marie.0'¢onn-31@autest.net",
     null,
@@ -171,7 +171,7 @@ negEmail = [
     "Le'a-Marie.0'¢onn-31@autest.net Le'a-Marie.0'¢onn-31@autest.net Le'"
 ]
 
-negPassword = [
+static negPassword = [
     "p@ss w0rd",
     "P@SS W0RD",
     "Le' a-Marie",
@@ -184,11 +184,11 @@ negPassword = [
     "p@ss w0rd p@ss w0rd p@ss w0rd p@ss w0rd p@ss w0rd p@ss w0rd p@ss"
 ]
 
-negConfirmPassword = [
+static negConfirmPassword = [
     "p@SS W0Rd"
 ]
 
-negPhysAddress = [
+static negPhysAddress = [
     "Rue de l’Égli$e",
     "Rue",
     "Rue de l’Église Rue de l’Église Rue de l’Église Rue de l’Église Rue d",
@@ -197,7 +197,7 @@ negPhysAddress = [
     "Rue de l’Église Rue de l’Église Rue de l’Église Rue de l’Église Rue d"
 ]
 
-negAptSuiteUnit = [
+static negAptSuiteUnit = [
     "@pt 86",
     "0 Apt",
     "86",
@@ -206,11 +206,11 @@ negAptSuiteUnit = [
     "Apartment 86"
 ]
 
-negCountry =[
+static negCountry =[
     "Select a country"
 ]
 
-negCity = [
+static negCity = [
     "B@den-Württemberg",
     "Bad3n-Württ3mb3rg",
     "Ode",
@@ -220,15 +220,15 @@ negCity = [
     "Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu"
 ]
 //these ones are country specific. 
-negStateUS = [
+static negStateUS = [
     "State"
 ]
 
-negProvinceCA = [
+static negProvinceCA = [
     "Province"
 ]
 
-negZipUS = [
+static negZipUS = [
     "9021Ω",
     "9012Ö",
     "9021O",
@@ -237,7 +237,7 @@ negZipUS = [
     "902101"
 ]
 
-negPostalCA = [
+static negPostalCA = [
     "X1M 1M",
     "X1M 1M7",
     "X1M 1M7",
@@ -248,14 +248,14 @@ negPostalCA = [
     "X1M 1M7A",
 ]
 
-negPostalOther = [
+static negPostalOther = [
     "SW1SℴNY",
     "01",
     "12345678901"
 ]
 
 // but not this one. this one is the last one.
-negPhone = [
+static negPhone = [
     "5s5-555-0123",
     "5 5-555-0123",
     "5§5-555-0123",

@@ -1,5 +1,5 @@
 import registerPage from "../pageobjects/register.page.js"
-import testVals from "../testVals.js"
+import { testVals } from "../testVals.js"
 
 describe('Positive Testing the', () => {
     it('Equivalent Partition USA', async () => {

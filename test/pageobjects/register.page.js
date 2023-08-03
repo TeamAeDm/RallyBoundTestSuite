@@ -84,6 +84,7 @@ class registerPage extends Page {
             }
         } else {
             console.log('negArray is either undefined or not an array');
+            await expect(false).toBeTruthy();
         }
     }
 
