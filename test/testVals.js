@@ -10,7 +10,7 @@ static posEPus = [
     "Apt #86",
     "UNITED STATES",
     "Baden-Württemberg",
-    "California",
+    "CA",
     "90210",
     "555-555-0123"
 ]
@@ -40,7 +40,7 @@ static posEPuk = [
     "Apt #86",
     "UNITED KINGDOM",
     "Baden-Württemberg",
-    null,
+    "",
     "SW1W 0NY",
     "555-555-0123"
 ]
@@ -87,7 +87,7 @@ static posBVALuk = [
     "#86",
     "UNITED KINGDOM",
     "Hull",
-    null,
+    "",
     "A1A 1A1",
     "000-000-0000"
 ]
@@ -133,7 +133,7 @@ static posBVAHuk = [
     "Apartment 7",
     "UNITED KINGDOM",
     "Llanfairpwllgwyngyllgogerychwndrobwllllantysiliogogogoch",
-    null,
+    "",
     "1234567890",
     "999-999-9999"
 ]
