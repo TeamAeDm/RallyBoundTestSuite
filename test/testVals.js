@@ -157,17 +157,17 @@ static negLastName = [
     ["Hi",                                                                                          "X9"],
     ["0' ¢onn-31 0' ¢onn-31 0' ¢onn-31 0' ¢onn-31 0' ¢onn-31 0' ¢onn-31 0' ¢onn-31 0' ¢onn-31",     "X10"],
     ["Hi",                                                                                          "D3"],
-    ["0' ¢onn-31 0' ¢onn-31 0' ¢onn-31 0' ¢onn-31 0' ¢onn-31 0' ¢onn-31 0' ¢onn-31 0' ¢onn-31",     "D4"],
+    ["0' ¢onn-31 0' ¢onn-31 0' ¢onn-31 0' ¢onn-31 0' ¢onn-31 0' ¢onn-31 0' ¢onn-31 0' ¢onn-31",     "D4"]
 ]
 
 static negEmail = [
-    ["Le'a-Marie.0'¢onn-31@autest.net@",                                        "X11"]
-    ["@Le'a-Marie.0'¢onn-31@autest.net",                                        "X12"]
-    ["",                                                                        "X13"]
-    ["Le' a-Marie. 0'¢onn-31@autest.net",                                       "X14"]
-    ["a@k.st",                                                                  "X15"]
-    ["Le'a-Marie.0'¢onn-31@autest.net Le'a-Marie.0'¢onn-31@autest.net Le'",     "X16"]
-    ["a@k.st",                                                                  "D5"]
+    ["Le'a-Marie.0'¢onn-31@autest.net@",                                        "X11"],
+    ["@Le'a-Marie.0'¢onn-31@autest.net",                                        "X12"],
+    ["",                                                                        "X13"],
+    ["Le' a-Marie. 0'¢onn-31@autest.net",                                       "X14"],
+    ["a@k.st",                                                                  "X15"],
+    ["Le'a-Marie.0'¢onn-31@autest.net Le'a-Marie.0'¢onn-31@autest.net Le'",     "X16"],
+    ["a@k.st",                                                                  "D5"],
     ["Le'a-Marie.0'¢onn-31@autest.net Le'a-Marie.0'¢onn-31@autest.net Le'",     "D6"]
 ]
 
@@ -181,7 +181,7 @@ static negPassword = [
     ["p@ss w0rd p@ss w0rd p@ss w0rd p@ss w0rd p@ss w0rd p@ss w0rd p@ss",    "X23"],
     ["",                                                                    "X24"],
     ["p@ssw",                                                               "D7"],
-    ["p@ss w0rd p@ss w0rd p@ss w0rd p@ss w0rd p@ss w0rd p@ss w0rd p@ss",    "D8"],
+    ["p@ss w0rd p@ss w0rd p@ss w0rd p@ss w0rd p@ss w0rd p@ss w0rd p@ss",    "D8"]
 ]
 
 static negConfirmPassword = [
@@ -195,7 +195,7 @@ static negPhysAddress = [
     ["Rue de l’Église Rue de l’Église Rue de l’Église Rue de l’Église Rue d",   "X29"],
     ["",                                                                        "X30"],
     ["Rue",                                                                     "D9"],
-    ["Rue de l’Église Rue de l’Église Rue de l’Église Rue de l’Église Rue d",   "D10"],
+    ["Rue de l’Église Rue de l’Église Rue de l’Église Rue de l’Église Rue d",   "D10"]
 ]
 
 static negAptSuiteUnit = [
@@ -204,7 +204,7 @@ static negAptSuiteUnit = [
     ["86",              "X33"],
     ["Apartment 86",    "X34"],
     ["86",              "D11"],
-    ["Apartment 86",    "D12"],
+    ["Apartment 86",    "D12"]
 
 ]
 
@@ -237,7 +237,7 @@ static negZipUS = [
     ["9 210",   "X46"],
     ["",        "X47"],
     ["9021",    "D15"],
-    ["902101",  "D16"],
+    ["902101",  "D16"]
 ]
 
 static negPostalCA = [
@@ -248,7 +248,7 @@ static negPostalCA = [
     ["Z1M 1M7",     "X52"],
     ["X1M 1D7",     "X53"],
     ["X1M 1M",      "D17"],
-    ["X1M 1M7A",    "D18"],
+    ["X1M 1M7A",    "D18"]
 ]
 
 static negPostalOther = [
