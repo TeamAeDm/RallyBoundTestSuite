@@ -40,7 +40,7 @@ class registerPage extends Page {
         }
     }
 
-    async expectTestOutcome(specifiedBool) {
+    async testOutcome(specifiedBool) {
         const elementHasText = await browser.waitUntil(async () => {
             return (await browser.getText(this.step)) === 'Step 2 of 4';
         }, {
@@ -55,34 +55,40 @@ class registerPage extends Page {
 
     async signUp(posArray, negTest, negEntry) {
 
-        negTest == 0 ? await this.firstName.setValue(negEntry)                  : await this.firstName.setValue(posArray[0]);
-        negTest == 1 ? await this.lastName.setValue(negEntry)                   : await this.lastName.setValue(posArray[1]);
-        negTest == 2 ? await this.email.setValue(negEntry)                      : await this.email.setValue(posArray[2]);
-        negTest == 3 ? await this.password.setValue(negEntry)                   : await this.password.setValue(posArray[3]);
-        negTest == 4 ? await this.confirmPassword.setValue(negEntry)            : await this.confirmPassword.setValue(posArray[4]);
-        negTest == 5 ? await this.address.setValue(negEntry)                    : await this.address.setValue(posArray[5]);
-        negTest == 6 ? await this.aptSteUnit.setValue(negEntry)                 : await this.aptSteUnit.setValue(posArray[6]);
-        negTest == 7 ? await this.country.selectByVisibleText(negEntry)         : await this.country.selectByVisibleText(posArray[7]);
-        negTest == 8 ? await this.city.setValue(negEntry)                       : await this.city.setValue(posArray[8]);
-        negTest == 9 ? await this.stateProvince.(negEntry)                      : await this.stateProvince(posArray[9]);
-        negTest ==10 ? await this.zipPostal.setValue(negEntry)                  : await this.zipPostal.setValue(posArray[10]);
-        negTest ==11 ? await this.phoneNumber(negEntry)                         : await this.phoneNumber(posArray[11]);
+        negTest == 0 ? await this.firstName.setValue(negEntry)                  : await this.firstName.setValue(posArray[0][0]);
+        negTest == 1 ? await this.lastName.setValue(negEntry)                   : await this.lastName.setValue(posArray[1][0]);
+        negTest == 2 ? await this.email.setValue(negEntry)                      : await this.email.setValue(posArray[2][0]);
+        negTest == 3 ? await this.password.setValue(negEntry)                   : await this.password.setValue(posArray[3][0]);
+        negTest == 4 ? await this.confirmPassword.setValue(negEntry)            : await this.confirmPassword.setValue(posArray[4][0]);
+        negTest == 5 ? await this.address.setValue(negEntry)                    : await this.address.setValue(posArray[5][0]);
+        negTest == 6 ? await this.aptSteUnit.setValue(negEntry)                 : await this.aptSteUnit.setValue(posArray[6][0]);
+        negTest == 7 ? await this.country.selectByVisibleText(negEntry)         : await this.country.selectByVisibleText(posArray[7][0]);
+        negTest == 8 ? await this.city.setValue(negEntry)                       : await this.city.setValue(posArray[8][0]);
+        negTest == 9 ? await this.stateProvince(negEntry)                       : await this.stateProvince(posArray[9][0]);
+        negTest ==10 ? await this.zipPostal.setValue(negEntry)                  : await this.zipPostal.setValue(posArray[10][0]);
+        negTest ==11 ? await this.phoneNumber(negEntry)                         : await this.phoneNumber(posArray[11][0]);
         await this.next.click;
     }
 
-    async posTester(posArray) {
-        await this.open(); 
-        this.signUp(posArray, 12, 0);
-        await expect(this.expectTestOutcome(true)).toBeTruthy(); 
+    async posTester(posArray, itComment) {
+        it(itComment, async  () => {
+            await this.open(); 
+            await this.signUp(posArray, 12, 0);
+            await expect(this.testOutcome(true)).toBeTruthy(); 
+        });
     }
 
-    async negTester(posArray, negTest, negArray) {
+    async negTester(posArray, negTest, negArray, fieldName) {
+         describe('Negative Testing the ' + fieldName + "field",  async () => {
             for (let i = 0; i < negArray.length; i++) {
-                await this.open();
-                await this.signUp(posArray, negTest, negArray[i]);
-                await expect(this.expectTestOutcome(false)).toBeTruthy();
+                it(negArray[i][0] + " , " + negArray[i][1],  async () => {      
+                    await this.open();
+                    await this.signUp(posArray, negTest, negArray[i][0]);
+                    await expect(this.testOutcome(false)).toBeTruthy();
+                });
             }
-    }
+        }
+)};
 
 
     open () {

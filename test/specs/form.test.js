@@ -1,132 +1,29 @@
 import registerPage from "../pageobjects/register.page.js"
 import { testVals } from "../testVals.js"
 
-describe('Positive Testing the', () => {
-    it('Equivalent Partition USA', async () => {
-        await registerPage.posTester(testVals.posEPus);
-    });
-
-    it('Equivalent Partition Canada', async () => {
-        await registerPage.posTester(testVals.posEPca);
-    });
-
-    it('Equivalent Partition UK', async () => {
-        await registerPage.posTester(testVals.posEPuk);
-    });
-
-    it('Boundary Value Low US', async () => {
-        await registerPage.posTester(testVals.posBVALus);
-    });
-
-    it('Boundary Value Low Canada', async () => {
-        await registerPage.posTester(testVals.posBVALca);
-    });
-
-    it('Boundary Value Low UK', async () => {
-        await registerPage.posTester(testVals.posBVALuk);
-    });
-
-    it('Boundary Value High US', async () => {
-        await registerPage.posTester(testVals.posBVAHus);
-    });
-
-    it('Boundary Value High Canada', async () => {
-        await registerPage.posTester(testVals.posBVAHca);
-    });
-
-    it('Boundary Value High UK', async () => {
-        await registerPage.posTester(testVals.posBVAHuk);
-    });
-
-
-    it('Equivalent Partition Canada', async () => {
-        await registerPage.posTester(testVals.posEPca);
-    });
-
-    it('Equivalent Partition UK', async () => {
-        await registerPage.posTester(testVals.posEPuk);
-    });
-
-    it('Boundary Value Low US', async () => {
-        await registerPage.posTester(testVals.posBVALus);
-    });
-
-    it('Boundary Value Low Canada', async () => {
-        await registerPage.posTester(testVals.posBVALca);
-    });
-
-    it('Boundary Value Low UK', async () => {
-        await registerPage.posTester(testVals.posBVALuk);
-    });
-
-    it('Boundary Value High US', async () => {
-        await registerPage.posTester(testVals.posBVAHus);
-    });
-
-    it('Boundary Value High Canada', async () => {
-        await registerPage.posTester(testVals.posBVAHca);
-    });
-
+describe('Positive Testing the', async  () => {
+        await registerPage.posTester(testVals.posEPus,                                          'Equivalent Partition USA');
+        await registerPage.posTester(testVals.posEPca,                                          'Equivalent Partition Canada');
+        await registerPage.posTester(testVals.posEPuk,                                          'Equivalent Partition UK');
+        await registerPage.posTester(testVals.posBVALus,                                        'Boundary Value Low US');
+        await registerPage.posTester(testVals.posBVALca,                                        'Boundary Value Low Canada');
+        await registerPage.posTester(testVals.posBVALuk,                                        'Boundary Value Low UK');
+        await registerPage.posTester(testVals.posBVAHus,                                        'Boundary Value High US');
+        await registerPage.posTester(testVals.posBVAHca,                                        'Boundary Value High Canada');
+        await registerPage.posTester(testVals.posBVAHuk,                                        'Boundary Value High UK');
 });
-
-describe('Negative Testing the ', () => {
-    it('First Name Field', async () => {
-        await registerPage.negTester(testVals.posEPus, 0, testVals.negFirstName);
-    });
-
-    it('Last Name Field', async () => {
-        await registerPage.negTester(testVals.posEPus, 1, testVals.negFirstName);
-    });
-
-    it('Email Address Field', async () => {
-        await registerPage.negTester(testVals.posEPus, 2, testVals.negEmail);
-    });
-
-    it('Password Field', async () => {
-        await registerPage.negTester(testVals.posEPus, 3, testVals.negPassword);
-    });
-
-    it('Confirm Password Field', async () => {
-        await registerPage.negTester(testVals.posEPus, 4, testVals.negConfirmPassword);
-    });
-
-    it('Physical Address Field', async () => {
-        await registerPage.negTester(testVals.posEPus, 5, testVals.negPhysAddress);
-    });
-
-    it('Apt/Suite/Unit Field', async () => {
-        await registerPage.negTester(testVals.posEPus, 6, testVals.negAptSuiteUnit);
-    });
-
-    it('Country Field', async () => {
-        await registerPage.negTester(testVals.posEPus, 7, testVals.negCountry); 
-    });
-
-    it('City Field', async () => {
-        await registerPage.negTester(testVals.posEPus, 8, testVals.negCity);
-    });
-
-    it('US State Field', async () => {
-        await registerPage.negTester(testVals.posEPus, 9, testVals.negStateUS);
-    });
-    
-    it('Canada Province Field', async () => {
-        await registerPage.negTester(testVals.posEPca, 9, testVals.negProvinceCA);
-    });
-
-    it('ZIP US Field', async () => {
-        await registerPage.negTester(testVals.posEPus, 10, testVals.negZipUS);
-    });
-
-    it('Postal Canada Field', async () => {
-        await registerPage.negTester(testVals.posEPca, 10, testVals.negPostalCA);
-    });
-
-    it('Postal UK Field', async () => {
-        await registerPage.negTester(testVals.posEPuk, 10, testVals.negPostalUK);
-    });
-
-    it('Phone Number Field', async () => {
-        await registerPage.negTester(testVals.posEPus, 11, testVals.negPhone);
-    });
-});
+        await registerPage.negTester(testVals.posEPus,      0,  testVals.negFirstName,          'First Name');
+        await registerPage.negTester(testVals.posEPus,      1,  testVals.negFirstName,          'Last Name');
+        await registerPage.negTester(testVals.posEPus,      2,  testVals.negEmail,              'Email Address');
+        await registerPage.negTester(testVals.posEPus,      3,  testVals.negPassword,           'Password');
+        await registerPage.negTester(testVals.posEPus,      4,  testVals.negConfirmPassword,    'Confirm Password');
+        await registerPage.negTester(testVals.posEPus,      5,  testVals.negPhysAddress,        'Physical Address');
+        await registerPage.negTester(testVals.posEPus,      6,  testVals.negAptSuiteUnit,       'Apt/Suite/Unit');
+        await registerPage.negTester(testVals.posEPus,      7,  testVals.negCountry,            'Country'); 
+        await registerPage.negTester(testVals.posEPus,      8,  testVals.negCity,               'City');
+        await registerPage.negTester(testVals.posEPus,      9,  testVals.negStateUS,            'US State');
+        await registerPage.negTester(testVals.posEPca,      9,  testVals.negProvinceCA,         'Canada Province');
+        await registerPage.negTester(testVals.posEPus,      10, testVals.negZipUS,              'ZIP US');
+        await registerPage.negTester(testVals.posEPca,      10, testVals.negPostalCA,           'Postal Canada');
+        await registerPage.negTester(testVals.posEPuk,      10, testVals.negPostalUK,           'Postal UK');
+        await registerPage.negTester(testVals.posEPus,      11, testVals.negPhone,              'Phone Number');
