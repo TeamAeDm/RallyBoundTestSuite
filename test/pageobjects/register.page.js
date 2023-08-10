@@ -73,7 +73,7 @@ class registerPage extends Page {
         });
     }
 
-    async negTester(posArray, negTest, negArray, fieldName) {
+    async negTester(posArray, negTest, negArray=[[],[]], fieldName) {
          describe('Negative Testing the ' + fieldName + "field",  async () => {
             for (let i = 0; i < negArray.length; i++) {
                 it(negArray[i][0] + " , " + negArray[i][1],  async () => {      
