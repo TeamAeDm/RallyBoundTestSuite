@@ -74,9 +74,9 @@ class registerPage extends Page {
     }
 
     async negTester(posArray, negTest, negArray=[[],[]], fieldName) {
-         describe('Negative Testing the ' + fieldName + "field",  async () => {
+        describe('Negative Testing the ' + fieldName + "field",  async () => {
             for (let i = 0; i < negArray.length; i++) {
-                it(negArray[i][0] + " , " + negArray[i][1],  async () => {      
+                it(`${negArray[i][0]} , ${negArray[i][1]}`,  async () => {      
                     await this.open();
                     await this.signUp(posArray, negTest, negArray[i][0]);
                     await expect(this.testOutcome(false)).toBeTruthy();
