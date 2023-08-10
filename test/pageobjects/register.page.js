@@ -19,7 +19,7 @@ class registerPage extends Page {
     get phone1 ()           { return $('#phoneNumber2'); }
     get phone2 ()           { return $('#phoneNumber3'); }
     get next ()             { return $('#register1Next'); }
-    get step ()             { return $('.stepofFour'); }
+    get errors ()           { return $$('.errorDv'); }
 
     async phoneNumber(tenDigits) {
         var digitArray = await tenDigits.split("-");
@@ -41,15 +41,10 @@ class registerPage extends Page {
     }
 
     async testOutcome(specifiedBool) {
-        const elementHasText = await browser.waitUntil(async () => {
-            return (await browser.getText(this.step)) === 'Step 2 of 4';
-        }, {
-            timeout: 5000,
-            timeoutMsg: 'Form contains invalid Entries'
-        });
-
-        return elementHasText === specifiedBool;
-        
+        await this.next.click;
+        let visErrors = this.errors.filter(ve => ve.isVisible());
+        let testSucceed = (this.visErrors.length == 0)
+        return testSucceed === specifiedBool;
     }
 
 
