@@ -47,44 +47,51 @@ class registerPage extends Page {
         return testSucceed === specifiedBool;
     }
 
-
-    async signUp(posArray, negTest, negEntry) {
-
-        negTest == 0 ? await this.firstName.setValue(negEntry)                  : await this.firstName.setValue(posArray[0][0]);
-        negTest == 1 ? await this.lastName.setValue(negEntry)                   : await this.lastName.setValue(posArray[1][0]);
-        negTest == 2 ? await this.email.setValue(negEntry)                      : await this.email.setValue(posArray[2][0]);
-        negTest == 3 ? await this.password.setValue(negEntry)                   : await this.password.setValue(posArray[3][0]);
-        negTest == 4 ? await this.confirmPassword.setValue(negEntry)            : await this.confirmPassword.setValue(posArray[4][0]);
-        negTest == 5 ? await this.address.setValue(negEntry)                    : await this.address.setValue(posArray[5][0]);
-        negTest == 6 ? await this.aptSteUnit.setValue(negEntry)                 : await this.aptSteUnit.setValue(posArray[6][0]);
-        negTest == 7 ? await this.country.selectByVisibleText(negEntry)         : await this.country.selectByVisibleText(posArray[7][0]);
-        negTest == 8 ? await this.city.setValue(negEntry)                       : await this.city.setValue(posArray[8][0]);
-        negTest == 9 ? await this.stateProvince(negEntry)                       : await this.stateProvince(posArray[9][0]);
-        negTest ==10 ? await this.zipPostal.setValue(negEntry)                  : await this.zipPostal.setValue(posArray[10][0]);
-        negTest ==11 ? await this.phoneNumber(negEntry)                         : await this.phoneNumber(posArray[11][0]);
-        await this.next.click;
+    async signUp(input) {
+        await this.firstName.setValue(input[0]);
+        await this.lastName.setValue(input[1]);
+        await this.email.setValue(input[2]);
+        await this.password.setValue(input[3]);
+        await this.confirmPassword.setValue(input[4]);
+        await this.address.setValue(input[5]);
+        await this.aptSteUnit.setValue(input[6]);
+        await this.country.selectByVisibleText(input[7]);
+        await this.city.setValue(input[8]);
+        await this.stateProvince(input[9]);
+        await this.zipPostal.setValue(input[10]);
+        await this.phoneNumber(input[11]);
     }
 
     async posTester(posArray, itComment) {
         it(itComment, async  () => {
             await this.open(); 
-            await this.signUp(posArray, 12, 0);
+            await this.signUp(await this.testArrayFilter(posArray));
             await expect(this.testOutcome(true)).toBeTruthy(); 
         });
     }
 
-    async negTester(posArray, negTest, negArray = [[], []], fieldName) {
-        describe('Negative Testing the ' + fieldName + "field", async () => {
+    async testArrayFilter(inputArray, negTest, negItem) {
+        let negFiltered = [];
+        for (let testValue of inputArray) {
+            negFiltered.push(testValue[0]);
+        }
+        if (negTest !== undefined) {
+            negFiltered[negTest] = negItem;
+        }
+        return negFiltered;
+    }
+      
+    async negTester(posArray, negTest, negArray=[[],[]], fieldName) {
+         describe('Negative Testing the ' + fieldName + "field",  async () => {
             for (let i = 0; i < negArray.length; i++) {
-                it(negArray[i][0] + " , " + negArray[i][1], async () => {
+                it(negArray[i][0] + " , " + negArray[i][1],  async () => {      
                     await this.open();
                     await this.signUp(await this.testArrayFilter(posArray, negTest, negArray[i][0]));
                     await expect(this.testOutcome(false)).toBeTruthy();
                 });
             }
         }
-        )
-    };
+)};
 
 
     open () {
