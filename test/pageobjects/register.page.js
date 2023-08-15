@@ -63,7 +63,14 @@ class registerPage extends Page {
     }
 
     async posTester(posArray, itComment) {
-        it(itComment, async  () => {
+        const tagArray = [];
+        for (let elem of posArray) {
+          tagArray.push(elem[1]);
+        }
+      
+        const tags = tagArray.join(', ');
+
+        it(itComment +  " , " + tags, async () => {
             await this.open(); 
             await this.signUp(await this.testArrayFilter(posArray));
             await expect(this.testOutcome(true)).toBeTruthy(); 
