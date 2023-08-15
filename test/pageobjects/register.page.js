@@ -72,8 +72,8 @@ class registerPage extends Page {
 
     async testArrayFilter(inputArray, negTest, negItem) {
         let negFiltered = [];
-        for (let testValue of inputArray) {
-            negFiltered.push(testValue[0]);
+        for (let elem of inputArray) {
+            negFiltered.push(elem[0]);
         }
         if (negTest !== undefined) {
             negFiltered[negTest] = negItem;
