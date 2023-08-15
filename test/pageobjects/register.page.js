@@ -65,9 +65,9 @@ class registerPage extends Page {
     async posTester(posArray, itComment) {
         const tagArray = [];
         for (let elem of posArray) {
-          tagArray.push(elem[1]);
+        tagArray.push(elem[1]);
         }
-      
+    
         const tags = tagArray.join(', ');
 
         it(itComment +  " , " + tags, async () => {
@@ -87,9 +87,9 @@ class registerPage extends Page {
         }
         return negFiltered;
     }
-      
+    
     async negTester(posArray, negTest, negArray=[[],[]], fieldName) {
-         describe('Negative Testing the ' + fieldName + "field",  async () => {
+        describe('Negative Testing the ' + fieldName + "field",  async () => {
             for (let i = 0; i < negArray.length; i++) {
                 it(negArray[i][0] + " , " + negArray[i][1],  async () => {      
                     await this.open();
