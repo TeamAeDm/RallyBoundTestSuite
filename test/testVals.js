@@ -1,95 +1,95 @@
 //first, the positive tests, starting with the equivalence partitions
 export class testVals {
 static posEPus = [
-    "Le' a-Marie",
-    "O’ Conn-él",
-    "Le'a-Marie.0'¢onn-31@autest.net",
-    "P@ss w0rD",
-    "P@ss w0rD",
-    "Rue de l’Église",
-    "Apt #86",
-    "UNITED STATES",
-    "Baden-Württemberg",
-    "CA",
-    "90210",
-    "555-555-0123"
+    "Le' a-Marie",                      "V1-5",
+    "O’ Conn-él",                       "V6-10",
+    "Le'a-Marie.0'¢onn-31@autest.net",  "V11-15",
+    "P@ss w0rD",                        "V16-21",
+    "P@ss w0rD",                        "V22",
+    "Rue de l’Église",                  "V23-25",
+    "Apt #86",                          "V26-28",
+    "UNITED STATES",                    "V29-30",
+    "Baden-Württemberg",                "V33-35",
+    "CA",                               "V36",
+    "90210",                            "V38-39",
+    "555-555-0123",                     "V50-51"
 ]
 
 static posEPca = [
-    "Le' a-Marie",
-    "O’ Conn-él",
-    "Le'a-Marie.0'¢onn-31@autest.net",
-    "P@ss w0rD",
-    "P@ss w0rD",
-    "Rue de l’Église",
-    "Apt #86",
-    "CANADA",
-    "Baden-Württemberg",
-    "BC",
-    "X1M 1M7",
-    "555-555-0123"
+    "Le' a-Marie",                      "V1-5",
+    "O’ Conn-él",                       "V6-10",
+    "Le'a-Marie.0'¢onn-31@autest.net",  "11-15",
+    "P@ss w0rD",                        "V16-21",
+    "P@ss w0rD",                        "V22",
+    "Rue de l’Église",                  "V23-25",
+    "Apt #86",                          "V26-28",
+    "CANADA",                           "V31",
+    "Baden-Württemberg",                "V33-35",
+    "BC",                               "V37",
+    "X1M 1M7",                          "V40-43",
+    "555-555-0123",                     "V50-51"
 ]
 
 static posEPuk = [
-    "Le' a-Marie",
-    "O’ Conn-él",
-    "Le'a-Marie.0'¢onn-31@autest.net",
-    "P@ss w0rD",
-    "P@ss w0rD",
-    "Rue de l’Église",
-    "Apt #86",
-    "UNITED KINGDOM",
-    "Baden-Württemberg",
-    "",
-    "SW1W 0NY",
-    "555-555-0123"
+    "Le' a-Marie",                      "V50-51",
+    "O’ Conn-él",                       "V6-10",
+    "Le'a-Marie.0'¢onn-31@autest.net",  "V11-15",
+    "P@ss w0rD",                        "V16-21", 
+    "P@ss w0rD",                        "V22",
+    "Rue de l’Église",                  "V23-25",
+    "Apt #86",                          "V26-28",
+    "UNITED KINGDOM",                   "V32",
+    "Baden-Württemberg",                "V33-35",
+    "",                                 "V32",
+    "SW1W 0NY",                         "V44-48",
+    "555-555-0123",                     "V50-51"
 ]
-
+ 
 //now the boundary values, the low ones
 
 static posBVALus = [
-    "Lea",
-    "Con",
-    "ai@k.st",
-    "N0 pa$",
-    "N0 pa$",
-    "Rued",
-    "#86",
-    "UNITED STATES",
-    "Hull",
-    "CA",
-    "00000",
-    "000-000-0000",
+    "Lea",              "B1",
+    "Con",              "B3",
+    "ai@k.st",          "B5",
+    "N0 pa$",           "B7",
+    "N0 pa$",           "V22",
+    "Rued",             "B9",
+    "#86",              "B11",
+    "UNITED STATES",    "V29-30",
+    "Hull",             "B13",
+    "CA",               "V36",
+    "00000",            "B15",
+    "000-000-0000",     "B21"
 ]
 
 static posBVALca = [
-    "Lea",
-    "Con",
-    "ai@k.st",
-    "N0 pa$",
-    "N0 pa$",
-    "Rued",
-    "#86",
-    "CANADA",
-    "Hull",
-    "BC",
-    "A1A 1A1",
-    "000-000-0000"
+    "Lea",          "B1",
+    "Con",          "B3",
+    "ai@k.st",      "B5",
+    "N0 pa$",       "B7",
+    "N0 pa$",       "V22",
+    "Rued",         "B9",
+    "#86",          "B11",
+    "CANADA",       "V31",
+    "Hull",         "B13",
+    "BC",           "V37",
+    "A1A 1A1",      "B17",
+    "000-000-0000", "B21"
 ]
 
 static posBVALuk = [
-    "Lea",
-    "Con",
-    "ai@k.st",
-    "N0 pa$",
-    "N0 pa$",
-    "Rued",
-    "#86",
-    "UNITED KINGDOM",
-    "Hull",
-    "",
-    "A1A 1A1",
-    "000-000-0000"
+    "Lea",              "B1",
+    "Con",              "B3",
+    "ai@k.st",          "B5",
+    "N0 pa$",           "B7",
+    "N0 pa$",           "V22",
+    "Rued",             "B9",
+    "#86",              "B11",
+    "UNITED KINGDOM",   "V32",
+    "Hull",             "B13",
+    "",                 "V32",
+    "A1A 1A1",          "B17",
+    "000-000-0000",     "B21"
 ]
 
 //and the high ones
@@ -109,18 +109,18 @@ static posBVAHus = [
 ]
 
 static posBVAHca = [
-    "Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a",
-    "O’ Conn-él O’ Conn-él O’ Conn-él O’ Conn-él O’ Conn-él O’ Conn-él O’ Conn-él O",
-    "12345678901234567890123456789012345678901234567890123@autest.net",
-    "P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss",
-    "P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss",
-    "Rue de l’Église Rue de l’Église Rue de l’Église Rue de l’Église Rued",
-    "Apartment 7",
-    "CANADA",
-    "Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu",
-    "BC",
-    "1234567890",
-    "999-999-9999"
+    "Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a",            "B2",
+    "O’ Conn-él O’ Conn-él O’ Conn-él O’ Conn-él O’ Conn-él O’ Conn-él O’ Conn-él O",           "B4",
+    "12345678901234567890123456789012345678901234567890123@autest.net",                         "B6",
+    "P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss",                         "B8",
+    "P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss",                         "V22",
+    "Rue de l’Église Rue de l’Église Rue de l’Église Rue de l’Église Rued",                     "D10",
+    "Apartment 7",                                                                              "B12",
+    "CANADA",                                                                                   "V31",
+    "Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu",    "B14",
+    "BC",                                                                                       "V37",
+    "1234567890",                                                                               "B20",
+    "999-999-9999",                                                                             "B22"
 ]
 
 static posBVAHuk = [
