@@ -1,17 +1,17 @@
 //first, the positive tests, starting with the equivalence partitions
 export class testVals {
 static posEPus = [
-    ["Le' a-Marie",                         "V1-5"]
-    ["O’ Conn-él",                          "V6-10"]
-    ["Le'a-Marie.0'¢onn-31@autest.net",     "V11-15"]
-    ["P@ss w0rD",                           "V16-21"]
-    ["P@ss w0rD",                           "V22"]
-    ["Rue de l’Église",                     "V23-25"]
-    ["Apt #86",                             "V26-28"]
-    ["UNITED STATES",                       "V29-30"]
-    ["Baden-Württemberg",                   "V33-35"]
-    ["CA",                                  "V36"]
-    ["90210",                               "V38-39"]
+    ["Le' a-Marie",                         "V1-5"],
+    ["O’ Conn-él",                          "V6-10"],
+    ["Le'a-Marie.0'¢onn-31@autest.net",     "V11-15"],
+    ["P@ss w0rD",                           "V16-21"],
+    ["P@ss w0rD",                           "V22"],
+    ["Rue de l’Église",                     "V23-25"],
+    ["Apt #86",                             "V26-28"],
+    ["UNITED STATES",                       "V29-30"],
+    ["Baden-Württemberg",                   "V33-35"],
+    ["CA",                                  "V36"],
+    ["90210",                               "V38-39"],
     ["555-555-0123",                        "V50-51"]
 ]
 
