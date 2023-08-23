@@ -22,28 +22,28 @@ class registerPage extends Page {
     get errors ()           { return $$('.errorDv'); }
 
     async phoneNumber(tenDigits) {
-        var digitArray = await tenDigits.split("-");
-        await this.phone0.setValue(digitArray[0])
-        await this.phone1.setValue(digitArray[1])
-        await this.phone2.setValue(digitArray[2])
+        var digitArray = tenDigits.split("-");
+        await this.phone0.setValue(digitArray[0]);
+        await this.phone1.setValue(digitArray[1]);
+        await this.phone2.setValue(digitArray[2]);
     }
 
     async stateProvince(select) {
         if (this.state.isDisplayed()) {
-            console.log("STATE IS SHOWING")
+            console.log("STATE IS SHOWING");
             await this.state.selectByVisibleText(select);
         } else if (this.province.isDisplayed()) {
-            console.log("PROVINCE IS SHOWING")
+            console.log("PROVINCE IS SHOWING");
             await this.province.selectByVisibleText(select);
         } else {
-            console.log("NEITHER PROVINCE NOR STATE IS SHOWING")
+          console.log("NEITHER PROVINCE NOR STATE IS SHOWING");
         }
     }
 
     async testOutcome(specifiedBool) {
-        await this.next.click;
+        await this.next.click();
         let visErrors = this.errors.filter(ve => ve.isVisible());
-        let testSucceed = (this.visErrors.length == 0)
+        let testSucceed = visErrors.length == 0;
         return testSucceed === specifiedBool;
     }
 
@@ -98,7 +98,7 @@ class registerPage extends Page {
                 });
             }
         }
-)};
+    );}
 
 
     open () {
