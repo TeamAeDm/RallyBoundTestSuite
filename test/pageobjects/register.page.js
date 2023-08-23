@@ -72,8 +72,8 @@ class registerPage extends Page {
 
         it(itComment +  " , " + tags, async () => {
             await this.open(); 
-            await this.signUp(await this.testArrayFilter(posArray));
-            await expect(this.testOutcome(true)).toBeTruthy(); 
+            this.signUp(await this.testArrayFilter(posArray));
+            expect(await this.testOutcome(true)).toBeTruthy();
         });
     }
 
@@ -93,8 +93,8 @@ class registerPage extends Page {
             for (let i = 0; i < negArray.length; i++) {
                 it(negArray[i][0] + " , " + negArray[i][1],  async () => {      
                     await this.open();
-                    await this.signUp(await this.testArrayFilter(posArray, negTest, negArray[i][0]));
-                    await expect(this.testOutcome(false)).toBeTruthy();
+              this.signUp(await this.testArrayFilter(posArray, negTest, negArray[i][0]));
+              expect(await this.testOutcome(false)).toBeTruthy();
                 });
             }
         }
