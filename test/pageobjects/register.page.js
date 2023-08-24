@@ -72,7 +72,7 @@ class registerPage extends Page {
 
         it(itComment +  " , " + tags, async () => {
             await this.open(); 
-            this.signUp(await this.testArrayFilter(posArray));
+            await this.signUp(posArray);
             expect(await this.testOutcome(true)).toBeTruthy();
         });
     }
