@@ -21,11 +21,23 @@ class registerPage extends Page {
     get next ()             { return $('#register1Next'); }
     get errors ()           { return $$('.errorDv'); }
 
+    async setValueAsKeys(elem, str) {
+        const codePoints = [];
+      
+        for (const character of str) {
+          const codePoint = character.codePointAt(0);
+          const unicodeCharacter = String.fromCodePoint(codePoint);
+          codePoints.push(unicodeCharacter);
+        }
+        await elem.click()
+        await elem.keys(codePoints)
+      }
+
     async phoneNumber(tenDigits) {
         var digitArray = tenDigits.split("-");
-        await this.phone0.setValue(digitArray[0]);
-        await this.phone1.setValue(digitArray[1]);
-        await this.phone2.setValue(digitArray[2]);
+        await this.setValueAsKeys(  this.phone0,    digitArray[0]);
+        await this.setValueAsKeys(  this.phone1,    digitArray[1]);
+        await this.setValueAsKeys(  this.phone2,    digitArray[2]);
     }
 
     async stateProvince(select) {
@@ -48,18 +60,18 @@ class registerPage extends Page {
     }
 
     async signUp(input) {
-        await this.firstName.setValue(input[0]);
-        await this.lastName.setValue(input[1]);
-        await this.email.setValue(input[2]);
-        await this.password.setValue(input[3]);
-        await this.confirmPassword.setValue(input[4]);
-        await this.address.setValue(input[5]);
-        await this.aptSteUnit.setValue(input[6]);
-        await this.country.selectByVisibleText(input[7]);
-        await this.city.setValue(input[8]);
-        await this.stateProvince(input[9]);
-        await this.zipPostal.setValue(input[10]);
-        await this.phoneNumber(input[11]);
+        await this.setValueAsKeys(              this.firstName,             input[0]);
+        await this.setValueAsKeys(              this.lastName,              input[1]);
+        await this.setValueAsKeys(              this.email,                 input[2]);
+        await this.setValueAsKeys(              this.password,              input[3]);
+        await this.setValueAsKeys(              this.confirmPassword,       input[4]);
+        await this.setValueAsKeys(              this.address,               input[5]);
+        await this.setValueAsKeys(              this.aptSteUnit,            input[6]);
+        await this.country.selectByVisibleText(                             input[7]);
+        await this.setValueAsKeys(              this.city,                  input[8]);
+        await this.stateProvince(                                           input[9]);
+        await this.setValueAsKeys(              this.zipPostal,             input[10]);
+        await this.phoneNumber(                                             input[11]);
     }
 
     async posTester(posArray, itComment) {
