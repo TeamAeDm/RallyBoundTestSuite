@@ -88,17 +88,6 @@ class registerPage extends Page {
             expect(await this.testOutcome(true)).toBeTruthy();
         });
     }
-
-    async testArrayFilter(inputArray, negTest, negItem) {
-        let negFiltered = [];
-        for (let elem of inputArray) {
-            negFiltered.push(elem[0]);
-        }
-        if (negTest !== undefined) {
-            negFiltered[negTest] = negItem;
-        }
-        return negFiltered;
-    }
     
     async negTester(posArray, negTest, negArray=[[],[]], fieldName) {
         let negFiltered = [];
