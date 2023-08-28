@@ -101,11 +101,20 @@ class registerPage extends Page {
     }
     
     async negTester(posArray, negTest, negArray=[[],[]], fieldName) {
+        let negFiltered = [];
+        for (const elem of posArray) {
+            negFiltered.push(elem[0]);
+        }
+    
+        if (negTest !== undefined) {
+            negFiltered[negTest] = negArray[0][0];
+        }
+    
         describe('Negative Testing the ' + fieldName + "field",  async () => {
             for (let i = 0; i < negArray.length; i++) {
                 it(negArray[i][0] + " , " + negArray[i][1],  async () => {      
                     await this.open();
-              this.signUp(await this.testArrayFilter(posArray, negTest, negArray[i][0]));
+              this.signUp(negFiltered);
               expect(await this.testOutcome(false)).toBeTruthy();
                 });
             }
