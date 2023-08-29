@@ -55,18 +55,18 @@ class registerPage extends Page {
     }
 
     async signUp(input) {
-        await this.firstName.setValueAsKeys(        input[0]);
-        await this.lastName.setValueAsKeys(         input[1]);
-        await this.email.setValueAsKeys(            input[2]);
-        await this.password.setValueAsKeys(         input[3]);
-        await this.confirmPassword.setValueAsKeys(  input[4]);
-        await this.address.setValueAsKeys(          input[5]);
-        await this.aptSteUnit.setValueAsKeys(       input[6]);
-        await this.country.selectByVisibleText(     input[7]);
-        await this.city.setValueAsKeys(             input[8]);
+        await this.firstName.setValueAsKeys(            input[0]);
+        await this.lastName.setValueAsKeys(             input[1]);
+        await this.email.setValueAsKeys(                input[2]);
+        await this.password.setValueAsKeys(             input[3]);
+        await this.confirmPassword.setValueAsKeys(      input[4]);
+        await this.address.setValueAsKeys(              input[5]);
+        await this.aptSteUnit.setValueAsKeys(           input[6]);
+        await this.country.selectByVisibleText(         input[7]);
+        await this.city.setValueAsKeys(                 input[8]);
         await this.stateProvince.selectByVisibleText(   input[9]);
-        await this.zipPostal.setValueAsKeys(        input[10]);
-        await this.phoneNumber(                     input[11]);
+        await this.zipPostal.setValueAsKeys(            input[10]);
+        await this.phoneNumber(                         input[11]);
     }
 
     async posTester(posArray, itComment) {
