@@ -12,8 +12,7 @@ class registerPage extends Page {
     get aptSteUnit ()       { return $('#address2'); }
     get country ()          { return $('#country'); }
     get city ()             { return $('#city'); }
-    get state ()            { return $('#state'); }
-    get province ()         { return $('#stateCa'); }
+    get stateProvince()     { return $('#state').isDisplayed() ? $('#state') : $('#stateCa'); }
     get zipPostal ()        { return $('#zip'); }
     get phone0 ()           { return $('#phoneNumber'); }
     get phone1 ()           { return $('#phoneNumber2'); }
@@ -65,7 +64,7 @@ class registerPage extends Page {
         await this.aptSteUnit.setValueAsKeys(       input[6]);
         await this.country.selectByVisibleText(     input[7]);
         await this.city.setValueAsKeys(             input[8]);
-        await this.stateProvince(                   input[9]);
+        await this.stateProvince.selectByVisibleText(   input[9]);
         await this.zipPostal.setValueAsKeys(        input[10]);
         await this.phoneNumber(                     input[11]);
     }
