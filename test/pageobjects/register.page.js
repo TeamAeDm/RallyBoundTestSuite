@@ -35,18 +35,6 @@ class registerPage extends Page {
         await this.setValueAsKeys(  this.phone2,    digitArray[2]);
     }
 
-    async stateProvince(select) {
-        if (this.state.isDisplayed()) {
-            console.log("STATE IS SHOWING");
-            await this.state.selectByVisibleText(select);
-        } else if (this.province.isDisplayed()) {
-            console.log("PROVINCE IS SHOWING");
-            await this.province.selectByVisibleText(select);
-        } else {
-          console.log("NEITHER PROVINCE NOR STATE IS SHOWING");
-        }
-    }
-
     async testOutcome(specifiedBool) {
         await this.next.click();
         let visErrors = this.errors.filter(ve => ve.isVisible());
