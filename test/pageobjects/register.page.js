@@ -48,6 +48,7 @@ class registerPage extends Page {
         let testSucceed = visErrors.length == 0;
         return testSucceed === specifiedBool;
     }
+    
 async signUp(input) {
     console.log('input[0] type:', typeof input[0], 'value:', input[0]);
     if (typeof input[0] === 'string') {
