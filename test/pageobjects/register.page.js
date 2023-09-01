@@ -122,7 +122,8 @@ async signUp(input) {
     } else {
         console.log(`Expected a string for phoneNumber but received a ${typeof input[11]}`);
     }
-
+    const negArray = [["error1", "description1"], ["error2", "description2"]];
+    this.negTester(posArray, negTest, negArray, fieldName);
     for (let i = 0; i < negArray.length; i++) {
         console.log('Loop iteration:', i);
     }
