@@ -145,7 +145,7 @@ async signUp(input) {
         });
     }
 
-        async negTester (posArray, negTest, negArray = [["error1", "description1"], ["error2", "description2"]], fieldName) {
+        async negTester (posArray, negTest, negArray = [[], []], fieldName) {
         let negFiltered = [];
         for (const elem of posArray) {
             negFiltered.push(elem[0]);
