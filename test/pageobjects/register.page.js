@@ -132,16 +132,19 @@ class registerPage extends Page {
     }
 
     async posTester(posArray, itComment) {
-        const tagArray = [];
-        for (let elem of posArray) {
-            tagArray.push(elem[1]);
+        let tagArray = [];
+        let testArray = [];
+        for (let row of posArray) {
+            testArray.push(row[0])
+            tagArray.push(row[1]);
+
         }
 
         const tags = tagArray.join(',');
 
         it(itComment + " , " + tags, async () => {
             await this.open();
-            await this.signUp(posArray);
+            await this.signUp(testArray);
             expect(await this.testOutcome(true)).toBeTruthy();
         });
     }
