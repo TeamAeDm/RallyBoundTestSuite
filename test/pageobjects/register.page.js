@@ -48,7 +48,10 @@ class registerPage extends Page {
         let testSucceed = visErrors.length == 0;
         if (visErrors.length <= 1) {
             return testSucceed === specifiedBool;
-        } else { return false }
+        } else { 
+            console.log("found "+ visErrors.length +" invalid entries, which isn't good");
+            return false; 
+        }
 
     }
 
