@@ -46,7 +46,10 @@ class registerPage extends Page {
         await this.next.click();
         let visErrors = this.errors.filter(ve => ve.isVisible());
         let testSucceed = visErrors.length == 0;
-        return testSucceed === specifiedBool;
+        if (visErrors.length <= 1) {
+            return testSucceed === specifiedBool;
+        } else { return false }
+
     }
 
     async signUp(input) {
