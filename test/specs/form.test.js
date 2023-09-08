@@ -13,7 +13,7 @@ describe('Positive Testing the', async  () => {
         await registerPage.posTester(testVals.posBVAHuk,                                                'Boundary Value High UK');
 });
         await registerPage.negTester(testVals.posEPus,      0,          testVals.negFirstName,          'First Name');
-        await registerPage.negTester(testVals.posEPus,      1,          testVals.negFirstName,          'Last Name');
+        await registerPage.negTester(testVals.posEPus,      1,          testVals.negLastName,          'Last Name');
         await registerPage.negTester(testVals.posEPus,      2,          testVals.negEmail,              'Email Address');
         await registerPage.negTester(testVals.posEPus,      3,          testVals.negPassword,           'Password');
         await registerPage.negTester(testVals.posEPus,      4,          testVals.negConfirmPassword,    'Confirm Password');
