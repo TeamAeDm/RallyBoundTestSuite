@@ -1,3 +1,18 @@
+/* static posTemplate = [
+    ["first name",                          "tags"],
+    ["last name",                           "tags"],
+    ["email address",                       "tags"],
+    ["password",                            "tags"],
+    ["confirm password",                    "tags"],
+    ["address",                             "tags"],
+    ["apt suite or space num",              "tags"],
+    ["country name",                        "tags"],
+    ["city name",                           "tags"],
+    ["state/prov abbreviation",             "tags"],
+    ["postal or zip code",                  "tags"],
+    ["phone number",                        "tags"]
+]
+*/
 //first, the positive tests, starting with the equivalence partitions
 export class testVals {
 static posEPus = [
@@ -139,7 +154,14 @@ static posBVAHuk = [
 ]
 
 // now for the negative values, one for each field
-
+/* static negTemplate = [
+    ["case1",                           "tags"],
+    ["case2",                           "tags"],
+    ["case3",                           "tags"],
+    and so on until
+    ["caseN"],                          "tags"]
+]
+*/
 static negFirstName = [
     ["Le' @-M@rie",                                                                                                                             "X1"],
     ["L3' a-Mari3",                                                                                                                             "X2"],
