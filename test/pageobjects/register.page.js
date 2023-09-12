@@ -1,8 +1,9 @@
 import Page from './page.js';
 
-
 class registerPage extends Page {
+
 //  get object ()           { return $('#selector);}            this is an example
+
     get firstName ()        { return $('#firstName');}
     get lastName ()         { return $('#lastName'); }
     get email ()            { return $('#emailAddress'); }
@@ -15,22 +16,25 @@ class registerPage extends Page {
     get state()             { return $('#state'); }
     get province()          { return $('#stateCa'); }
     get zipPostal ()        { return $('#zip'); }
-    get phone0 ()           { return $('#phoneNumber'); }//apparently each number block in the phone number field is seperate. check phoneNumber method for how we deal with this
+    get phone0 ()           { return $('#phoneNumber'); }   //apparently each number block in the phone number field is seperate. check phoneNumber method for how we deal with this
     get phone1 ()           { return $('#phoneNumber2'); }
     get phone2 ()           { return $('#phoneNumber3'); }
     get next ()             { return $('#register1Next'); } //this is the button we click to send the form
-    get errors ()           { return $$('.errorDv'); } //this returns a list containing each element that's an error block. we can find out how many errors we have by check how long this array is
+    get errors ()           { return $$('.errorDv'); }      //this returns a list containing each element that's an error block. we can find out how many errors we have by check how long this array is
 
     async stateProvince(country, input) {        //the state and province fields only show up if the united states or canada are picked respectively
         switch (country) {
+
             case "UNITED STATES":                               //if the country is united states,
                 await this.state.waitForExist();                //wait for the state field to show up,
                 await this.state.selectByVisibleText(input);    //and pick the input from the dropdown
                 break;
+
             case "CANADA"                                       //if the country is canada,
                 await this.province.waitForExist();             //wait for the province field to show up
                 await this.province.selectByVisibleText(input); //and pick the input from the dropdown
                 break;
+
             default:                                            //in all other cases, don't do anything
                 break;
         }
@@ -54,13 +58,11 @@ class registerPage extends Page {
             
             return testSucceed === specifiedBool; //if expectation matches outcome, we want a return true. else it should be false. simple equality check should do.
 
-
-
         } else {                                                                            //if there are 2 or more errors, 
             console.log("found "+ visErrors.length +" invalid entries, which isn't good");  //log the problem
             return false;                                                                   //and fail the test 
+        
         }
-
     }
 
     async signUp(input) { //input is an array of strings
@@ -78,7 +80,6 @@ class registerPage extends Page {
         await this.phoneNumber(                         input[11]); //phone numbers have to be parsed first using this method
     }
 
-
     async posTester(posArray, itComment) {
         let tagArray = [];
         let testArray = [];
@@ -90,7 +91,7 @@ class registerPage extends Page {
 
         const tags = tagArray.join(','); //merge the tags into a single string separated by commas
 
-        it(itComment + " , " + tags, async () => { 
+        it(itComment + " , " + tags, async () => { //put the tags in the it comment
             await this.open();                                  //open the register page
             await this.signUp(testArray);                       //pass the test array to the form
             expect(await this.testOutcome(true)).toBeTruthy();  //expect the test to pass
@@ -98,25 +99,27 @@ class registerPage extends Page {
     }
 
     async negTester(posArray, negTest, negArray = [[], []], fieldName) {
-        let negFiltered = [];
-        for (const elem of posArray) {
-            negFiltered.push(elem[0]);
-        }
-
-        if (negTest !== undefined) {
-            negFiltered[negTest] = negArray[0][0];
-        }
-
-        describe('Negative Testing the ' + fieldName + "field", async () => {
-            for (let i = 0; i < negArray.length; i++) {
-                it(negArray[i][0] + " , " + negArray[i][1], async () => {
-                    await this.open();
-                    this.signUp(negFiltered);
-                    expect(await this.testOutcome(false)).toBeTruthy();
-                });
-            }
+        describe('Negatively Testing the '+ fieldName + "field", () => {
+            
         });
+        for(let row of negArray) {              // Loop through each value of negArray
+            let neggedPosArray = [...posArray]; // Create a copy of posArray
+            neggedPosArray[negTest] = row;      // Replace the index in posArray as indicated by negTest with the negArray value
+            
+            let testArray = [];                 //create a array just for the test fields and not the tags
+            for (let row of neggedPosArray) {   //go through each row
+                testArray.push(row[0])          //and put the first column into the test array
+            }
+            
+            it(neggedPosArray[negTest][0] + " , " + neggedPosArray[negTest][1], async () => {   //put the negative input and tag into the it comment
+                await this.open();                                                              //open the register page
+                await this.signUp(testArray);                                                   //pass the test array to the form
+                expect(await this.testOutcome(false)).toBeTruthy();                             //expect the test to pass
+            });
+        }
     }
+        
+        
 
     open() {
         return super.open('/Account/Register');
