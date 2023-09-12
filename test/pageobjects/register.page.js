@@ -2,7 +2,7 @@ import Page from './page.js';
 
 class registerPage extends Page {
 
-//  get object ()           { return $('#selector);}            this is an example
+ // get object ()           { return $('#selector);}            this is an example
 
     get firstName ()        { return $('#firstName');}
     get lastName ()         { return $('#lastName'); }
@@ -40,23 +40,23 @@ class registerPage extends Page {
         }
     }
 
-    async phoneNumber(tenDigits) { //argument is a string like this -> 111-222-3333
+    async phoneNumber(tenDigits) {      //argument is a string like this -> 111-222-3333
 
-        var digitArray = tenDigits.split("-"); // turns 111-222-3333 into [111, 222, 3333]
-        await this.phone0.setValue(digitArray[0]); //puts 111 into here  
-        await this.phone1.setValue(digitArray[1]); //puts 222 into here
-        await this.phone2.setValue(digitArray[2]); //puts 3333 into here
+        var digitArray = tenDigits.split("-");              // turns 111-222-3333 into [111, 222, 3333]
+        await this.phone0.setValue(digitArray[0]);                      //puts 111 into here  
+        await this.phone1.setValue(digitArray[1]);                      //puts 222 into here
+        await this.phone2.setValue(digitArray[2]);                      //puts 3333 into here
     }
 
-    async testOutcome(specifiedBool) { //arg is whether we expect the test to pass or fail (true for pass, false for fail)
+    async testOutcome(specifiedBool) {              //arg is whether we expect the test to pass or fail (true for pass, false for fail)
 
         await this.next.click();                                    //click the "next" button
         let visErrors = this.errors.filter(ve => ve.isVisible());   //we define number of errors by how many error boxes show up
         let testSucceed = visErrors.length == 0;                    //define a passing test as having no error boxes
 
-        if (visErrors.length <= 1) { //in a positive test, we should have no errors. in a negative test, we should have exactly one
+        if (visErrors.length <= 1) {            //in a positive test, we should have no errors. in a negative test, we should have exactly one
             
-            return testSucceed === specifiedBool; //if expectation matches outcome, we want a return true. else it should be false. simple equality check should do.
+            return testSucceed === specifiedBool;           //if expectation matches outcome, we want a return true. else it should be false. simple equality check should do.
 
         } else {                                                                            //if there are 2 or more errors, 
             console.log("found "+ visErrors.length +" invalid entries, which isn't good");  //log the problem
@@ -66,32 +66,32 @@ class registerPage extends Page {
     }
 
     async signUp(input) { //input is an array of strings
-        await this.firstName.setValue(                  input[0]);  //set the field to the corresponding input 
-        await this.lastName.setValue(                   input[1]);  //setValue is for text fields
+        await this.firstName.setValue(                  input[0]);      //set the field to the corresponding input 
+        await this.lastName.setValue(                   input[1]);      //setValue is for text fields
         await this.email.setValue(                      input[2]);
         await this.password.setValue(                   input[3]);
         await this.confirmPassword.setValue(            input[4]);
         await this.address.setValue(                    input[5]);
         await this.aptSteUnit.setValue(                 input[6]);
-        await this.country.selectByVisibleText(         input[7]);  //selectByVisibleText is for dropdowns 
+        await this.country.selectByVisibleText(         input[7]);      //selectByVisibleText is for dropdowns 
         await this.city.setValue(                       input[8]);
-        await this.stateProvince(       input[7],       input[9]);  //for this method to work we have to pass it the country and the state/province 
+        await this.stateProvince(       input[7],       input[9]);      //for this method to work we have to pass it the country and the state/province 
         await this.zipPostal.setValue(                  input[10]);
-        await this.phoneNumber(                         input[11]); //phone numbers have to be parsed first using this method
+        await this.phoneNumber(                         input[11]);     //phone numbers have to be parsed first using this method
     }
 
     async posTester(posArray, itComment) {
         let tagArray = [];
         let testArray = [];
-        for (let row of posArray) { //go through each row
-            testArray.push(row[0])  //put the first column into the test array
-            tagArray.push(row[1]);  //put the second column into the tag array
+        for (let row of posArray) {         //go through each row
+            testArray.push(row[0])          //put the first column into the test array
+            tagArray.push(row[1]);          //put the second column into the tag array
 
         }
 
-        const tags = tagArray.join(','); //merge the tags into a single string separated by commas
+        const tags = tagArray.join(',');    //merge the tags into a single string separated by commas
 
-        it(itComment + " , " + tags, async () => { //put the tags in the it comment
+        it(itComment + " , " + tags, async () => {      //put the tags in the it comment
             await this.open();                                  //open the register page
             await this.signUp(testArray);                       //pass the test array to the form
             expect(await this.testOutcome(true)).toBeTruthy();  //expect the test to pass
@@ -103,15 +103,15 @@ class registerPage extends Page {
             
         });
         for(let row of negArray) {              // Loop through each value of negArray
-            let neggedPosArray = [...posArray]; // Create a copy of posArray
-            neggedPosArray[negTest] = row;      // Replace the index in posArray as indicated by negTest with the negArray value
+            let testAndTagArray = [...posArray]; // Create a copy of posArray
+            testAndTagArray[negTest] = row;      // Replace the index in posArray as indicated by negTest with the negArray value
             
             let testArray = [];                 //create a array just for the test fields and not the tags
-            for (let row of neggedPosArray) {   //go through each row
+            for (let row of testAndTagArray) {   //go through each row
                 testArray.push(row[0])          //and put the first column into the test array
             }
             
-            it(neggedPosArray[negTest][0] + " , " + neggedPosArray[negTest][1], async () => {   //put the negative input and tag into the it comment
+            it(testAndTagArray[negTest][0] + " , " + testAndTagArray[negTest][1], async () => {   //put the negative input and tag into the it comment
                 await this.open();                                                              //open the register page
                 await this.signUp(testArray);                                                   //pass the test array to the form
                 expect(await this.testOutcome(false)).toBeTruthy();                             //expect the test to pass
