@@ -12,14 +12,29 @@ class registerPage extends Page {
     get aptSteUnit ()       { return $('#address2'); }
     get country ()          { return $('#country'); }
     get city ()             { return $('#city'); }
-    get stateProvince()     { return $('#state').isDisplayed() ? $('#state') : $('#stateCa'); }
-                                        // if ^                 then ^          else ^
+    get state()             { return $('#state'); }
+    get province()          { return $('#stateCa'); }
     get zipPostal ()        { return $('#zip'); }
     get phone0 ()           { return $('#phoneNumber'); }//apparently each number block in the phone number field is seperate. check phoneNumber method for how we deal with this
     get phone1 ()           { return $('#phoneNumber2'); }
     get phone2 ()           { return $('#phoneNumber3'); }
     get next ()             { return $('#register1Next'); } //this is the button we click to send the form
     get errors ()           { return $$('.errorDv'); } //this returns a list containing each element that's an error block. we can find out how many errors we have by check how long this array is
+
+    async stateProvince(country, input) {        //the state and province fields only show up if the united states or canada are picked respectively
+        switch (country) {
+            case "UNITED STATES":                               //if the country is united states,
+                await this.state.waitForExist();                //wait for the state field to show up,
+                await this.state.selectByVisibleText(input);    //and pick the input from the dropdown
+                break;
+            case "CANADA"                                       //if the country is canada,
+                await this.province.waitForExist();             //wait for the province field to show up
+                await this.province.selectByVisibleText(input); //and pick the input from the dropdown
+                break;
+            default:                                            //in all other cases, don't do anything
+                break;
+        }
+    }
 
     async phoneNumber(tenDigits) { //argument is a string like this -> 111-222-3333
 
@@ -59,7 +74,7 @@ class registerPage extends Page {
         await this.country.selectByVisibleText(         input[7]); //selectByVisibleText is for dropdowns 
         await browser.pause(5000);
         await this.city.setValue(                       input[8]);
-        await this.stateProvince.selectByVisibleText(   input[9]);
+        await this.stateProvince(       input[7],       input[9]);  //for this method to work we have to pass it the country and the state/province 
         await this.zipPostal.setValue(                  input[10]);
         await this.phoneNumber(                         input[11]); //phone numbers have to be parsed first using bespoke function
     }
