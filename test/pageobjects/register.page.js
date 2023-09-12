@@ -30,7 +30,7 @@ class registerPage extends Page {
                 await this.state.selectByVisibleText(input);    //and pick the input from the dropdown
                 break;
 
-            case "CANADA"                                       //if the country is canada,
+            case "CANADA":                                       //if the country is canada,
                 await this.province.waitForExist();             //wait for the province field to show up
                 await this.province.selectByVisibleText(input); //and pick the input from the dropdown
                 break;
