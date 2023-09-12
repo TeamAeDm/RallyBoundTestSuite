@@ -64,19 +64,18 @@ class registerPage extends Page {
     }
 
     async signUp(input) { //input is an array of strings
-        await this.firstName.setValue(                  input[0]); //set the field to the corresponding input 
-        await this.lastName.setValue(                   input[1]); //setValue is for text fields
+        await this.firstName.setValue(                  input[0]);  //set the field to the corresponding input 
+        await this.lastName.setValue(                   input[1]);  //setValue is for text fields
         await this.email.setValue(                      input[2]);
         await this.password.setValue(                   input[3]);
         await this.confirmPassword.setValue(            input[4]);
         await this.address.setValue(                    input[5]);
         await this.aptSteUnit.setValue(                 input[6]);
-        await this.country.selectByVisibleText(         input[7]); //selectByVisibleText is for dropdowns 
-        await browser.pause(5000);
+        await this.country.selectByVisibleText(         input[7]);  //selectByVisibleText is for dropdowns 
         await this.city.setValue(                       input[8]);
         await this.stateProvince(       input[7],       input[9]);  //for this method to work we have to pass it the country and the state/province 
         await this.zipPostal.setValue(                  input[10]);
-        await this.phoneNumber(                         input[11]); //phone numbers have to be parsed first using bespoke function
+        await this.phoneNumber(                         input[11]); //phone numbers have to be parsed first using this method
     }
 
 
@@ -84,8 +83,8 @@ class registerPage extends Page {
         let tagArray = [];
         let testArray = [];
         for (let row of posArray) { //go through each row
-            testArray.push(row[0]) //put the first column into the test array
-            tagArray.push(row[1]); //put the second column into the tag array
+            testArray.push(row[0])  //put the first column into the test array
+            tagArray.push(row[1]);  //put the second column into the tag array
 
         }
 
