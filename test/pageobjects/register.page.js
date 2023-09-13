@@ -89,9 +89,11 @@ class registerPage extends Page {
 
         }
 
-        const tags = tagArray.join(',');    //merge the tags into a single string separated by commas
-
-        it(itComment + " , " + tags, async () => {      //put the tags in the it comment
+        const tags = tagArray.join(', ');    //merge the tags into a single string separated by commas
+        describe('Positive Test' + itComment, () => {
+            
+        });
+        it(tags, async () => {      //put the tags in the it comment
             await this.open();                                  //open the register page
             await this.signUp(testArray);                       //pass the test array to the form
             expect(await this.testOutcome(true)).toBeTruthy();  //expect the test to pass

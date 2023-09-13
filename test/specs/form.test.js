@@ -1,7 +1,7 @@
 import registerPage from "../pageobjects/register.page.js"
 import { testVals } from "../testVals.js"
         //      function call           posArray                negTestFieldNum          negArray                comment for itStatement
-describe('Positive Testing the', async  () => {
+
         await registerPage.posTester    (testVals.posEPus,                                                              'Equivalent Partition USA');
         await registerPage.posTester    (testVals.posEPca,                                                              'Equivalent Partition Canada');
         await registerPage.posTester    (testVals.posEPuk,                                                              'Equivalent Partition UK');
@@ -11,7 +11,7 @@ describe('Positive Testing the', async  () => {
         await registerPage.posTester    (testVals.posBVAHus,                                                            'Boundary Value High US');
         await registerPage.posTester    (testVals.posBVAHca,                                                            'Boundary Value High Canada');
         await registerPage.posTester    (testVals.posBVAHuk,                                                            'Boundary Value High UK');
-});
+
         await registerPage.negTester    (testVals.posEPus,      0,                      testVals.negFirstName,          'First Name');
         await registerPage.negTester    (testVals.posEPus,      1,                      testVals.negLastName,           'Last Name');
         await registerPage.negTester    (testVals.posEPus,      2,                      testVals.negEmail,              'Email Address');
