@@ -109,12 +109,12 @@ export class testVals {
     
     //and the high ones
     static posBVAHus = [
-        ["Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' ",   "B2"],
-        ["O' Conn-el O' Conn-el O' Conn-el O' Conn-el O' Conn-el O' Conn-e", "B4"],
-        ["12345678901234567890123456789012345678901234567890123@autest.net",                "B6"],
+        ["Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' ",        "B2"],
+        ["O' Conn-el O' Conn-el O' Conn-el O' Conn-el O' Conn-el O' Conn-e",        "B4"],
+        ["12345678901234567890123456789012345678901234567890123@autest.net",        "B6"],
         ["P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss",                "B8"],
         ["P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss",                "V22"],
-        ["Rue de l'eglise Rue de l'eglise Rue de l'eglise Rue de l'eglise ",            "B10"],
+        ["Rue de l'eglise Rue de l'eglise Rue de l'eglise Rue de l'eglise ",        "B10"],
         ["Apartment 7",                                                                     "B12"],
         ["UNITED STATES",                                                                   "V29"],
         ["Llanfairpwllgwyngyllgogerychwndrobwllllantysiliogogogoch",                        "B14"],
