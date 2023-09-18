@@ -19,7 +19,7 @@ class registerPage extends Page {
     get phone0 ()           { return $('#phoneNumber'); }   //apparently each number block in the phone number field is seperate. check phoneNumber method for how we deal with this
     get phone1 ()           { return $('#phoneNumber2'); }
     get phone2 ()           { return $('#phoneNumber3'); }
-    get next ()             { return $('#register1Next'); } //this is the button we click to send the form
+    get okToClick ()        { return $('#registerBtn0'); }  //click this button after each test
     get errors ()           { return $$('.errorDv'); }      //this returns a list containing each element that's an error block. we can find out how many errors we have by check how long this array is
 
     async stateProvince(country, input) {        //the state and province fields only show up if the united states or canada are picked respectively
@@ -50,7 +50,7 @@ class registerPage extends Page {
 
     async testOutcome(specifiedBool) {              //arg is whether we expect the test to pass or fail (true for pass, false for fail)
 
-        await this.next.click();                                    //click the "next" button
+        await this.okToClick.click();                                    //click the "step one" button
         let visErrors = this.errors.filter(ve => ve.isVisible());   //we define number of errors by how many error boxes show up
         let testSucceed = visErrors.length == 0;                    //define a passing test as having no error boxes
 
