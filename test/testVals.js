@@ -109,12 +109,12 @@ export class testVals {
     
     //and the high ones
     static posBVAHus = [
-        ["Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a",   "B2"],
-        ["O' Conn-el O' Conn-el O' Conn-el O' Conn-el O' Conn-el O' Conn-el O' Conn-el O",  "B4"],
+        ["Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' ",   "B2"],
+        ["O' Conn-el O' Conn-el O' Conn-el O' Conn-el O' Conn-el O' Conn-e", "B4"],
         ["12345678901234567890123456789012345678901234567890123@autest.net",                "B6"],
         ["P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss",                "B8"],
         ["P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss",                "V22"],
-        ["Rue de l'eglise Rue de l'eglise Rue de l'eglise Rue de l'eglise Rued",            "B10"],
+        ["Rue de l'eglise Rue de l'eglise Rue de l'eglise Rue de l'eglise ",            "B10"],
         ["Apartment 7",                                                                     "B12"],
         ["UNITED STATES",                                                                   "V29"],
         ["Llanfairpwllgwyngyllgogerychwndrobwllllantysiliogogogoch",                        "B14"],
@@ -124,27 +124,27 @@ export class testVals {
     ]
     
     static posBVAHca = [
-        ["Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a",            "B2"],
-        ["O' Conn-el O' Conn-el O' Conn-el O' Conn-el O' Conn-el O' Conn-el O' Conn-el O",           "B4"],
+        ["Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' ",            "B2"],
+        ["O' Conn-el O' Conn-el O' Conn-el O' Conn-el O' Conn-el O' Conn-e",           "B4"],
         ["12345678901234567890123456789012345678901234567890123@autest.net",                         "B6"],
         ["P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss",                         "B8"],
         ["P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss",                         "V22"],
-        ["Rue de l'eglise Rue de l'eglise Rue de l'eglise Rue de l'eglise Rued",                     "D10"],
+        ["Rue de l'eglise Rue de l'eglise Rue de l'eglise Rue de l'eglise ",                     "D10"],
         ["Apartment 7",                                                                              "B12"],
         ["CANADA",                                                                                   "V31"],
-        ["Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu",    "B14"],
+        ["Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronuku",    "B14"],
         ["BC",                                                                                       "V37"],
         ["1234567890",                                                                               "B20"],
         ["999-999-9999",                                                                             "B22"]
     ]
     
     static posBVAHuk = [
-        ["Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a",       "B2"],
-        ["O' Conn-el O' Conn-el O' Conn-el O' Conn-el O' Conn-el O' Conn-el O' Conn-el O",      "B4"],
+        ["Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' a-Marie Le' ",       "B2"],
+        ["O' Conn-el O' Conn-el O' Conn-el O' Conn-el O' Conn-el O' Conn-e",      "B4"],
         ["12345678901234567890123456789012345678901234567890123@autest.net",                    "B6"],
         ["P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss",                    "B8"],
         ["P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss w0rD P@ss",                    "V22"],
-        ["Rue de l'eglise Rue de l'eglise Rue de l'eglise Rue de l'eglise Rued",                "B10"],
+        ["Rue de l'eglise Rue de l'eglise Rue de l'eglise Rue de l'eglise ",                "B10"],
         ["Apartment 7",                                                                         "B12"],
         ["UNITED KINGDOM",                                                                      "V32"],
         ["Llanfairpwllgwyngyllgogerychwndrobwllllantysiliogogogoch",                            "B14"],
