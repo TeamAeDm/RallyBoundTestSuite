@@ -93,7 +93,8 @@ class registerPage extends Page {
         await this.phone0.clearValue();
         await this.phone1.clearValue();    
         await this.phone2.clearValue();
-    }   
+    }   //dropdowns not clearable   
+
     async posTester(posArray, itComment) {
         let tagArray = [];
         let testArray = [];
