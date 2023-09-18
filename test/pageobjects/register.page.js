@@ -80,6 +80,20 @@ class registerPage extends Page {
         await this.phoneNumber(                         input[11]);     //phone numbers have to be parsed first using this method
     }
 
+    async clearAll() { //run after each test is complete
+        await this.firstName.clearValue();      
+        await this.lastName.clearValue();     
+        await this.email.clearValue();
+        await this.password.clearValue();
+        await this.confirmPassword.clearValue();
+        await this.address.clearValue();
+        await this.aptSteUnit.clearValue();
+        await this.city.clearValue();
+        await this.zipPostal.clearValue();
+        await this.phone0.clearValue();
+        await this.phone1.clearValue();    
+        await this.phone2.clearValue();
+    }   
     async posTester(posArray, itComment) {
         let tagArray = [];
         let testArray = [];
@@ -97,6 +111,7 @@ class registerPage extends Page {
             await this.open();                                  //open the register page
             await this.signUp(testArray);                       //pass the test array to the form
             expect(await this.testOutcome(true)).toBeTruthy();  //expect the test to pass
+            await this.clearAll();
         });
     }
 
@@ -117,6 +132,7 @@ class registerPage extends Page {
                 await this.open();                                                              //open the register page
                 await this.signUp(testArray);                                                   //pass the test array to the form
                 expect(await this.testOutcome(false)).toBeTruthy();                             //expect the test to pass
+                await this.clearAll();
             });
         }
     }
