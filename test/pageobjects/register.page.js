@@ -51,17 +51,21 @@ class registerPage extends Page {
     async testOutcome(specifiedBool) {              //arg is whether we expect the test to pass or fail (true for pass, false for fail)
 
         await this.okToClick.click();                                    //click the "step one" button
-        let visErrors = this.errors.filter(ve => ve.isVisible());   //we define number of errors by how many error boxes show up
-        let testSucceed = visErrors.length == 0;                    //define a passing test as having no error boxes
-
-        if (visErrors.length <= 1) {            //in a positive test, we should have no errors. in a negative test, we should have exactly one
-            
-            return testSucceed === specifiedBool;           //if expectation matches outcome, we want a return true. else it should be false. simple equality check should do.
-
-        } else {                                                                            //if there are 2 or more errors, 
-            console.log("found "+ visErrors.length +" invalid entries, which isn't good");  //log the problem
-            return false;                                                                   //and fail the test 
         
+        let errorCount = 0;
+        for (const instance of this.errors) {
+            if (await instance.isDisplayed()) {
+                errorCount++;
+            }
+        }
+
+        switch (specifiedBool) {
+            case true:
+                expect(errorCount).toBe(0);
+                break;
+            case false:
+                expect(errorCount).toBe(1);
+                break;
         }
     }
 
@@ -111,7 +115,7 @@ class registerPage extends Page {
         it(tags, async () => {      //put the tags in the it comment
             await this.open();                                  //open the register page
             await this.signUp(testArray);                       //pass the test array to the form
-            expect(await this.testOutcome(true)).toBeTruthy();  //expect the test to pass
+            await this.testOutcome(true);                        //expect the test to pass
             await this.clearAll();
         });
     }
@@ -132,13 +136,11 @@ class registerPage extends Page {
             it(testAndTagArray[negTest][0] + " , " + testAndTagArray[negTest][1], async () => {   //put the negative input and tag into the it comment
                 await this.open();                                                              //open the register page
                 await this.signUp(testArray);                                                   //pass the test array to the form
-                expect(await this.testOutcome(false)).toBeTruthy();                             //expect the test to pass
+                await this.testOutcome(false);                             //expect the test to pass
                 await this.clearAll();
             });
         }
     }
-        
-        
 
     open() {
         return super.open('/Account/Register');
