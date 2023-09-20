@@ -53,20 +53,14 @@ class registerPage extends Page {
         await this.okToClick.click();                                    //click the "step one" button
         
         let errorCount = 0;
-        for (const instance of this.errors) {
+        for (let instance of this.errors) {
             if (await instance.isDisplayed()) {
                 errorCount++;
             }
         }
 
-        switch (specifiedBool) {
-            case true:
-                expect(errorCount).toBe(0);
-                break;
-            case false:
-                expect(errorCount).toBe(1);
-                break;
-        }
+        expect(errorCount).toBe(specifiedBool);
+
     }
 
     async signUp(input) { //input is an array of strings
@@ -115,7 +109,7 @@ class registerPage extends Page {
         it(tags, async () => {      //put the tags in the it comment
             await this.open();                                  //open the register page
             await this.signUp(testArray);                       //pass the test array to the form
-            await this.testOutcome(true);                        //expect the test to pass
+            await this.testOutcome(0);                        //expect the test to pass
             await this.clearAll();
         });
     }
@@ -136,7 +130,7 @@ class registerPage extends Page {
             it(testAndTagArray[negTest][0] + " , " + testAndTagArray[negTest][1], async () => {   //put the negative input and tag into the it comment
                 await this.open();                                                              //open the register page
                 await this.signUp(testArray);                                                   //pass the test array to the form
-                await this.testOutcome(false);                             //expect the test to pass
+                await this.testOutcome(1);                             //expect the test to pass
                 await this.clearAll();
             });
         }
