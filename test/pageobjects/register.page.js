@@ -52,10 +52,10 @@ class registerPage extends Page {
 
         await this.okToClick.click();                                    //click the "step one" button
         
-        let errorCount = 0;
-        for (let instance of this.errors) {
-            if (await instance.isDisplayed()) {
-                errorCount++;
+        let errorCount = 0;                                     // new variable called error count
+        for (let instance of this.errors) {                     // check through the errors
+            if (instance && await instance.isDisplayed()) {     // if we find one which is displayed,
+                errorCount++;                                   // then increase the error count 
             }
         }
 
