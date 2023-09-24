@@ -60,18 +60,18 @@ class registerPage extends Page {
     }
 
     async signUp(input) { //input is an array of strings
-        await this.firstName.setValue(                  input[0]);      //set the field to the corresponding input 
-        await this.lastName.setValue(                   input[1]);      //setValue is for text fields
-        await this.email.setValue(                      input[2]);
-        await this.password.setValue(                   input[3]);
-        await this.confirmPassword.setValue(            input[4]);
-        await this.address.setValue(                    input[5]);
-        await this.aptSteUnit.setValue(                 input[6]);
-        await this.country.selectByVisibleText(         input[7]);      //selectByVisibleText is for dropdowns 
-        await this.city.setValue(                       input[8]);
-        await this.stateProvince(       input[7],       input[9]);      //for this method to work we have to pass it the country and the state/province 
-        await this.zipPostal.setValue(                  input[10]);
-        await this.phoneNumber(                         input[11]);     //phone numbers have to be parsed first using this method
+        input[0] === undefined          ? null : await this.firstName.setValue(                 input[0]);      //set the field to the corresponding input 
+        input[1] === undefined          ? null : await this.lastName.setValue(                  input[1]);      //setValue is for text fields
+        input[2] === undefined          ? null : await this.email.setValue(                     input[2]);
+        input[3] === undefined          ? null : await this.password.setValue(                  input[3]);
+        input[4] === undefined          ? null : await this.confirmPassword.setValue(           input[4]);
+        input[5] === undefined          ? null : await this.address.setValue(                   input[5]);
+        input[6] === undefined          ? null : await this.aptSteUnit.setValue(                input[6]);
+        input[7] === undefined          ? null : await this.country.selectByVisibleText(        input[7]);      //selectByVisibleText is for dropdowns 
+        input[8] === undefined          ? null : await this.city.setValue(                      input[8]);
+        input[9] === undefined          ? null : await this.stateProvince(input[7],             input[9]);      //for this method to work we have to pass it the country and the state/province 
+        input[10] === undefined         ? null : await this.zipPostal.setValue(                 input[10]);
+        input[11] === undefined         ? null : await this.phoneNumber(                        input[11]);     //phone numbers have to be parsed first using this method
     }
 
     async clearAll() { //run after each test is complete
