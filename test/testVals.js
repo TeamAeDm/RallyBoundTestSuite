@@ -249,7 +249,7 @@ export class testVals {
     ]
     
     static negProvinceCA = [
-        ["Province", "X42"]
+        ["Provinces", "X42"]
     ]
     
     static negZipUS = [
