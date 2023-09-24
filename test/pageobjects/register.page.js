@@ -123,6 +123,10 @@ class registerPage extends Page {
                 for (let row of testAndTagArray) {      //go through each row
                     testArray.push(row[0])              //and put the first column into the test array
                 }
+    
+                if (negTest !== 4) {                    // if negTest is not 4
+                    testArray[4] = testArray[3];        // then replace index 4 with a duplicate of index 3
+                }
 
                 it(testAndTagArray[negTest][0] + " , " + testAndTagArray[negTest][1], async () => {     //put the negative input and tag into the it comment
                     await this.open();                                                                  //open the register page
