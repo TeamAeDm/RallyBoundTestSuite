@@ -48,18 +48,14 @@ class registerPage extends Page {
         await this.phone2.setValue(digitArray[2]);                      //puts 3333 into here
     }
 
-    async testOutcome(specifiedBool) {              //arg is whether we expect the test to pass or fail (true for pass, false for fail)
+    async testOutcome(errorSpecified) {              //arg is whether we expect the test to pass or fail (true for pass, false for fail)
 
-        await this.okToClick.click();                                    //click the "step one" button
+        await this.okToClick.click();                               //click the "step one" button
         
-        let errorCount = 0;                                     // new variable called error count
-        for (let instance of this.errors) {                     // check through the errors
-            if (instance && await instance.isDisplayed()) {     // if we find one which is displayed,
-                errorCount++;                                   // then increase the error count 
-            }
-        }
+        let errorElements = await this.errors;                      //await the promise
+        let errorCount = errorElements.length;                      //check the array length
 
-        expect(errorCount).toBe(specifiedBool);
+        expect(errorCount).toBe(errorSpecified);                    //simple boolean equality check
 
     }
 
