@@ -30,7 +30,7 @@ class registerPage extends Page {
                 await this.state.selectByVisibleText(input);    //and pick the input from the dropdown
                 break;
 
-            case "CANADA":                                       //if the country is canada,
+            case "CANADA":                                      //if the country is canada,
                 await this.province.waitForExist();             //wait for the province field to show up
                 await this.province.selectByVisibleText(input); //and pick the input from the dropdown
                 break;
@@ -99,13 +99,14 @@ class registerPage extends Page {
         }
 
         const tags = tagArray.join(', ');    //merge the tags into a single string separated by commas
+
         describe('Positive Test' + itComment, () => {
             
         });
-        it(tags, async () => {      //put the tags in the it comment
+        it(tags, async () => {                                  //put the tags in the it comment
             await this.open();                                  //open the register page
             await this.signUp(testArray);                       //pass the test array to the form
-            await this.testOutcome(0);                        //expect the test to pass
+            await this.testOutcome(0);                          //expect the test to pass
             await this.clearAll();
         });
     }
@@ -114,20 +115,20 @@ class registerPage extends Page {
         describe('Negatively Testing the '+ fieldName + "field", () => {
             
         });
-        for(let row of negArray) {              // Loop through each value of negArray
-            let testAndTagArray = [...posArray]; // Create a copy of posArray
-            testAndTagArray[negTest] = row;      // Replace the index in posArray as indicated by negTest with the negArray value
+        for(let row of negArray) {                  // Loop through each value of negArray
+            let testAndTagArray = [...posArray];    // Create a copy of posArray
+            testAndTagArray[negTest] = row;         // Replace the index in posArray as indicated by negTest with the negArray value
             
-            let testArray = [];                 //create a array just for the test fields and not the tags
-            for (let row of testAndTagArray) {   //go through each row
-                testArray.push(row[0])          //and put the first column into the test array
+            let testArray = [];                     //create a array just for the test fields and not the tags
+            for (let row of testAndTagArray) {      //go through each row
+                testArray.push(row[0])              //and put the first column into the test array
             }
             
-            it(testAndTagArray[negTest][0] + " , " + testAndTagArray[negTest][1], async () => {   //put the negative input and tag into the it comment
-                await this.open();                                                              //open the register page
-                await this.signUp(testArray);                                                   //pass the test array to the form
-                await this.testOutcome(1);                             //expect the test to pass
-                await this.clearAll();
+            it(testAndTagArray[negTest][0] + " , " + testAndTagArray[negTest][1], async () => {     //put the negative input and tag into the it comment
+                await this.open();                                                                  //open the register page
+                await this.signUp(testArray);                                                       //pass the test array to the form
+                await this.testOutcome(1);                                                          //expect the test to pass
+                await this.clearAll();                                                              //then clear the screen for the next pass
             });
         }
     }
