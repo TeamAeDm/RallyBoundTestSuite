@@ -100,37 +100,38 @@ class registerPage extends Page {
 
         const tags = tagArray.join(', ');    //merge the tags into a single string separated by commas
 
-        describe('Positive Test' + itComment, () => {
+        describe('Positive Test' + itComment, async () => {
             
-        });
+        
         it(tags, async () => {                                  //put the tags in the it comment
             await this.open();                                  //open the register page
             await this.signUp(testArray);                       //pass the test array to the form
             await this.testOutcome(0);                          //expect the test to pass
             await this.clearAll();
-        });
+        });});
     }
 
     async negTester(posArray, negTest, negArray = [[], []], fieldName) {
-        describe('Negatively Testing the '+ fieldName + "field", () => {
-            
-        });
-        for(let row of negArray) {                  // Loop through each value of negArray
-            let testAndTagArray = [...posArray];    // Create a copy of posArray
-            testAndTagArray[negTest] = row;         // Replace the index in posArray as indicated by negTest with the negArray value
-            
-            let testArray = [];                     //create a array just for the test fields and not the tags
-            for (let row of testAndTagArray) {      //go through each row
-                testArray.push(row[0])              //and put the first column into the test array
+        describe('Negatively Testing the ' + fieldName + "field", () => {
+
+
+            for (let row of negArray) {                 // Loop through each value of negArray
+                let testAndTagArray = [...posArray];    // Create a copy of posArray
+                testAndTagArray[negTest] = row;         // Replace the index in posArray as indicated by negTest with the negArray value
+
+                let testArray = [];                     //create a array just for the test fields and not the tags
+                for (let row of testAndTagArray) {      //go through each row
+                    testArray.push(row[0])              //and put the first column into the test array
+                }
+
+                it(testAndTagArray[negTest][0] + " , " + testAndTagArray[negTest][1], async () => {     //put the negative input and tag into the it comment
+                    await this.open();                                                                  //open the register page
+                    await this.signUp(testArray);                                                       //pass the test array to the form
+                    await this.testOutcome(1);                                                          //expect the test to pass
+                    await this.clearAll();                                                              //then clear the screen for the next pass
+                })
             }
-            
-            it(testAndTagArray[negTest][0] + " , " + testAndTagArray[negTest][1], async () => {     //put the negative input and tag into the it comment
-                await this.open();                                                                  //open the register page
-                await this.signUp(testArray);                                                       //pass the test array to the form
-                await this.testOutcome(1);                                                          //expect the test to pass
-                await this.clearAll();                                                              //then clear the screen for the next pass
-            });
-        }
+        })   
     }
 
     open() {
