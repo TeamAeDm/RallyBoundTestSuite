@@ -48,14 +48,19 @@ class registerPage extends Page {
         await this.phone2.setValue(digitArray[2]);                      //puts 3333 into here
     }
 
-    async testOutcome(errorSpecified) {              //arg is whether we expect the test to pass or fail (true for pass, false for fail)
-
+    async testOutcome(boolSpecified) {              //arg is whether we expect the test to pass or fail (true for pass, false for fail)
+        let errorCountExpected;
+        if (boolSpecified === true) {                        //if arg is true
+            errorCountExpected = 0;             //then set expected errors to 0
+        } else {                                    //if arg is false
+            errorCountExpected = 1;             //then set expected errors to 1
+        }
         await this.okToClick.click();                               //click the "step one" button
         
         let errorElements = await this.errors;                      //await the promise
-        let errorCount = errorElements.length;                      //check the array length
+        let errorCountActual = errorElements.length;                      //check the array length
 
-        expect(errorCount).toBe(errorSpecified);                    //simple boolean equality check
+        expect(errorCountActual).toBe(errorCountExpected);                    //simple boolean equality check
 
     }
 
@@ -106,7 +111,7 @@ class registerPage extends Page {
         it(tags, async () => {                                  //put the tags in the it comment
             await this.open();                                  //open the register page
             await this.signUp(testArray);                       //pass the test array to the form
-            await this.testOutcome(0);                          //expect the test to pass
+            await this.testOutcome(true);                          //expect the test to pass
             await this.clearAll();
         });});
     }
@@ -131,7 +136,7 @@ class registerPage extends Page {
                 it(testAndTagArray[negTest][0] + " , " + testAndTagArray[negTest][1], async () => {     //put the negative input and tag into the it comment
                     await this.open();                                                                  //open the register page
                     await this.signUp(testArray);                                                       //pass the test array to the form
-                    await this.testOutcome(1);                                                          //expect the test to pass
+                    await this.testOutcome(false);                                                          //expect the test to pass
                     await this.clearAll();                                                              //then clear the screen for the next pass
                 })
             }
