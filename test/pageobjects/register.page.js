@@ -53,7 +53,7 @@ class registerPage extends Page {
         let errorCountExpected;
         boolSpecified === true ?            //if arg is true
         errorCountExpected = 0:             //then set expected errors to 0
-        errorCountExpected = 1;             //then set expected errors to 1
+        errorCountExpected = 1;             //else set expected errors to 1
 
         await this.okToClick.click();                               //click the "step one" button
         let errorElements = await this.errors;                      //await the promise
