@@ -51,10 +51,10 @@ class registerPage extends Page {
     async testOutcome(boolSpecified) {              //arg is whether we expect the test to pass or fail (true for pass, false for fail)
         let errorCountExpected;
         if (boolSpecified === true) {                        //if arg is true
-            errorCountExpected = 0;             //then set expected errors to 0
-        } else {                                    //if arg is false
+        boolSpecified === true ?            //if arg is true
+        errorCountExpected = 0:             //then set expected errors to 0
             errorCountExpected = 1;             //then set expected errors to 1
-        }
+
         await this.okToClick.click();                               //click the "step one" button
         
         let errorElements = await this.errors;                      //await the promise
